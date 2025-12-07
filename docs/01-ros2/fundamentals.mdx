@@ -1,0 +1,48 @@
+---
+sidebar_position: 1
+title: ROS 2 Fundamentals
+---
+
+# ROS 2 Fundamentals
+
+Welcome to the Robotic Nervous System. **ROS (Robot Operating System)** is the standard open-source framework for robotics. ROS 2 is the latest generation, designed to be more robust, secure, and ready for commercial applications.
+
+At its core, ROS 2 enables communication between different parts of your robot's software stack in a structured way.
+
+## The ROS 2 Architecture
+
+Think of ROS 2 as a distributed system of processes, which are called **Nodes**.
+
+### 1. Nodes
+
+A **Node** is the smallest unit of computation in ROS 2. Each node should be responsible for a single, specific task.
+-   A node for controlling the wheel motors.
+-   A node for reading LIDAR sensor data.
+-   A node for planning a path.
+
+They are independent executables that can be run on different machines and communicate over the network.
+
+### 2. Topics (The Messengers)
+
+Nodes communicate with each other by publishing and subscribing to **Topics**.
+-   **Concept:** A topic is a named bus for sending messages. It's like a channel where nodes can broadcast information without knowing who (or if anyone) is listening.
+-   **Publisher:** A node that sends data to a topic. (e.g., The LIDAR node publishes `sensor_msgs/LaserScan` data to the `/scan` topic).
+-   **Subscriber:** A node that receives data from a topic. (e.g., The navigation node subscribes to the `/scan` topic to get data for obstacle avoidance).
+
+This is a one-to-many communication pattern. One node can publish, and many nodes can subscribe.
+
+### 3. Services (Request/Response)
+
+While topics are great for continuous data streams, **Services** are used for synchronous, request/response communication.
+-   **Concept:** A service has a client and a server. The client sends a request and waits for the server to send back a response.
+-   **Example:** You might have a `/trigger_action` service. A client node sends a request like `"start_cleaning"`, and the service node performs the action and replies with a response like `{"status": "success"}`.
+
+This is a one-to-one communication pattern.
+
+### 4. Actions (Long-Running Tasks)
+
+**Actions** are similar to services but are designed for long-running, feedback-oriented tasks that can be preempted.
+-   **Concept:** An action client sends a goal to an action server. The server starts executing the goal and provides continuous feedback to the client. The client can cancel the goal at any time.
+-   **Example:** Navigating to a point. The goal is the destination `(x, y, z)`. The feedback is the robot's current distance from the goal. The result is a confirmation that the robot has arrived.
+
+Actions provide a more robust way to handle complex behaviors than services.

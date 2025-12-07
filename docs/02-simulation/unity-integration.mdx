@@ -1,0 +1,37 @@
+---
+sidebar_position: 2
+title: High-Fidelity Rendering with Unity
+---
+
+# High-Fidelity Rendering with Unity
+
+While Gazebo is excellent for physics simulation, its visual rendering capabilities are functional but not photorealistic. For applications requiring high-fidelity graphics, such as generating synthetic training data or creating compelling Human-Robot Interaction (HRI) scenarios, we can turn to a game engine like **Unity**.
+
+## Why Use Unity with ROS?
+
+Unity provides a state-of-the-art rendering pipeline, beautiful lighting, and a vast ecosystem of assets. By connecting it to ROS 2, we can get the best of both worlds:
+
+-   **Accurate Physics:** Run the core physics simulation in Gazebo or another dedicated physics engine.
+-   **Photorealistic Visuals:** Use Unity purely for rendering the robot and its environment.
+-   **ROS 2 as the Backbone:** Use ROS 2 topics, services, and actions as the communication layer that ties everything together.
+
+## Bridging ROS 2 to Unity
+
+The key is to establish a communication bridge between the ROS 2 ecosystem and the Unity environment. The [Unity Robotics Hub](https://github.com/Unity-Technologies/Unity-Robotics-Hub) provides official packages to achieve this.
+
+The typical architecture looks like this:
+
+1.  **ROS 2 World:**
+    -   Your robot's control logic (Python/C++ nodes) runs here.
+    -   A physics simulator (like Gazebo) might be running here, publishing the robot's state (`/joint_states`, `/tf`).
+    -   Sensor data is published on topics.
+
+2.  **ROS-TCP-Endpoint:**
+    -   This is a special ROS 2 node that acts as a bridge. It receives ROS messages and forwards them over a TCP/IP socket.
+
+3.  **Unity World:**
+    -   You import your robot's 3D model (e.g., from an FBX file).
+    -   The Unity Robotics Hub package receives the TCP messages.
+    -   A C# script in Unity subscribes to the joint state messages and updates the robot's articulation in the Unity scene in real-time.
+
+This setup allows you to have a "digital twin" where the underlying control and physics can be simulated accurately, while the visualization is rendered with the high quality of a modern game engine. This is particularly powerful for creating training data for vision-based AI models, as the synthetic images from Unity can be made to look very close to real-world camera feeds.

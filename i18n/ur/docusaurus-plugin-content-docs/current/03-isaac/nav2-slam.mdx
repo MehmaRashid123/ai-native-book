@@ -1,0 +1,32 @@
+---
+sidebar_position: 2
+title: Navigation and SLAM with Isaac ROS
+---
+
+# Navigation aur SLAM Isaac ROS ke saath
+
+Aik baar jab aap ka robot simulation mein aa jata hai, tou agla aham kaam ussay khudmukhtaari dena hai. Is ka matlab hai ke ussay yeh pata hona chahiye ke woh kahan hai (**Localization**), duniya kaisi dikhti hai (**Mapping**), aur A se B tak kaise pahunchna hai (**Path Planning**).
+
+## SLAM: Simultaneous Localization and Mapping
+
+**SLAM** aik anjaan mahol ka naqsha banane ka bunyadi masla hai jabkay aik hi waqt mein robot ki position ko us naqshay mein track karna hai.
+
+-   **Visual SLAM (VSLAM):** **SLAM** ki aik khaas qisam jo naqsha banane aur localize karne ke liye camera data (visual features) istemaal karti hai. Yeh computationally intensive hai lekin mahol ke bare mein bharpoor maloomat faraham karta hai.
+-   **Isaac ROS VSLAM:** NVIDIA, **VSLAM** ke liye hardware-accelerated **ROS 2** packages faraham karta hai, jo NVIDIA GPUs par efficiently chalne ke liye design kiye gaye hain. Yeh packages real-time mein camera data process kar sakte hain taakay naqsha banaya ja sake aur robot ke pose (position aur orientation) ka andaza lagaya ja sake.
+
+## The Navigation 2 Stack (Nav2)
+
+**Nav2**, **ROS 2** mein standard navigation stack hai. Yeh aik highly configurable system hai jo sensor data aur aik goal pose leta hai, aur robot ko harkat dene ke liye velocity commands output karta hai.
+
+Yeh kayi aham servers par mushtamil hai:
+1.  **Map Server:** Pehle se banaye gaye naqshe ko load karta hai ya **SLAM** system se live naqsha haasil karta hai.
+2.  **AMCL (Adaptive Monte Carlo Localization):** Aik localization system jo aik particle filter istemaal karta hai taakay robot ki position ka andaza aik maloom naqshe par lagaya ja sake.
+3.  **BT Navigator (Behavior Tree Navigator):** High-level planner. Yeh poore navigation process ko orchestrate karne ke liye aik **Behavior Tree** istemaal karta hai, goal tak path compute karne se lekar recovery behaviors perform karne tak agar robot phans jata hai.
+4.  **Global Planner:** Robot ke current location se goal pose tak overall path compute karta hai, static map se maloom rukawaton se bachta hai.
+5.  **Local Planner / Controller:** Global plan ko follow karne ke liye safe velocity commands compute karta hai jabkay sensors se detect hone wali immediate, dynamic rukawaton se bachta hai.
+
+### Navigation for Humanoids
+
+Halanke **Nav2** asal mein wheeled robots ke liye design kiya gaya tha, lekin is ke usoolon ko legged robots, bashmole humanoids ke liye adapt kiya ja sakta hai. Bunyadi farq yeh hai ke **Nav2** stack (`/cmd_vel` messages) ka output seedha wheel motors ko nahi bheja ja sakta. Is ke bajaye, is ki tashreeh aik **walking controller** ya aik **gait planner** ke zariye ki jani chahiye.
+
+Yeh controller desired linear aur angular velocities ko joint torques aur foot placements ke complex sequence mein translate karta hai jo stable bipedal locomotion ke liye darkaar hota hai. Yeh woh jagah hai jahan Isaac Gym mein train ki gayi reinforcement learning policies aksar kaam aati hain.

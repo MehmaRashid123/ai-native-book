@@ -1,0 +1,44 @@
+---
+sidebar_position: 2
+title: LLMs for High-Level Planning
+---
+
+# Using LLMs as High-Level Planners
+
+A transcribed voice command like "robot, clean the room" is still too abstract for a robot to execute directly. A robot's control system understands concrete actions like "move joint A to 45 degrees" or "navigate to coordinates (x, y)".
+
+This is where a Large Language Model (LLM) like GPT-4o can act as a **high-level cognitive planner**. Its job is to decompose the abstract human command into a sequence of concrete, executable sub-tasks that the robot's lower-level systems can handle.
+
+## The LLM Planner Pattern
+
+The process generally looks like this:
+
+1.  **System Prompt Engineering:** You provide the LLM with a detailed system prompt that tells it about its role, the robot's capabilities, and the available tools.
+
+    > **System Prompt Example:**
+    > "You are a helpful robot assistant. Your task is to break down user commands into a sequence of functions. You have access to the following functions: `navigate_to(location)`, `find_object(object_name)`, `pick_up(object_id)`, and `place_at(location)`. The only known locations are 'kitchen', 'living_room', and 'recycling_bin'."
+
+2.  **User Command:** You pass the transcribed user command to the LLM.
+
+    > **User Command:** "please pick up the empty soda can and throw it away"
+
+3.  **LLM Function Calling:** The LLM, using its reasoning capabilities and the context from the system prompt, generates a structured plan. Modern LLMs can output this as a JSON object representing a sequence of function calls.
+
+    > **LLM Output (as a plan):**
+    > ```json
+    > [
+    >   { "function": "navigate_to", "params": { "location": "living_room" } },
+    >   { "function": "find_object", "params": { "object_name": "soda_can" } },
+    >   { "function": "pick_up", "params": { "object_id": "soda_can_id_123" } },
+    >   { "function": "navigate_to", "params": { "location": "recycling_bin" } },
+    >   { "function": "place_at", "params": { "location": "recycling_bin" } }
+    > ]
+    > ```
+    > *(Note: `object_id` would be filled in by the output of the `find_object` step).*
+
+4.  **Plan Execution:** A separate "plan execution" module in your code receives this JSON plan. It then iterates through the steps, calling the corresponding ROS 2 services or actions for each one.
+    -   It calls the `navigate_to` ROS 2 action server.
+    -   Once that succeeds, it calls the `find_object` service.
+    -   And so on, until the plan is complete or a step fails.
+
+This architecture creates a powerful separation of concerns. The LLM handles the "what" (the plan), and the robot's ROS 2-based control system handles the "how" (the physical execution).

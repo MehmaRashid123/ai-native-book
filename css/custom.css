@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ifm-color-primary: #3b82f6; /* Electric Blue */
+  --ifm-color-primary-dark: #2563eb;
+  --ifm-color-primary-darker: #1d4ed8;
+  --ifm-color-primary-light: #60a5fa;
+  --ifm-background-color: #0f172a; /* Deep Space Black */
+  --ifm-background-surface-color: #1e293b;
+  --ifm-text-color: #e2e8f0;
+  --ifm-navbar-background-color: rgba(15, 23, 42, 0.8); /* Glassmorphism */
+  --ifm-navbar-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Force Glassmorphism on Navbar */
+.navbar {
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Modern Cards */
+.card {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+/* Glowing Buttons */
+.button--primary {
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  border: none;
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
+  transition: all 0.3s ease;
+}
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.6);
+}

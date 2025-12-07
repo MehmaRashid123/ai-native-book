@@ -1,0 +1,76 @@
+---
+sidebar_position: 1
+title: Voice Commands with OpenAI Whisper
+---
+
+# Voice Commands with OpenAI Whisper
+
+Vision-Language-Action (VLA) models start with understanding human intent. One of the most natural ways for a human to give a command is through speech. We can use **OpenAI Whisper** to convert spoken language into text that our AI planner can understand.
+
+## What is Whisper?
+
+Whisper is an automatic speech recognition (ASR) system trained by OpenAI. It's highly accurate and can transcribe speech from a variety of languages and accents. We can use its API to send an audio file and receive a text transcription.
+
+## Tutorial: Transcribing a Voice Command in Python
+
+Let's create a simple Python script that records audio from a microphone, saves it to a file, and sends it to the Whisper API for transcription.
+
+### Prerequisites
+You'll need to install the `openai` and `sounddevice` libraries.
+```bash
+pip install openai sounddevice scipy
+```
+
+### The Code
+
+```python
+import sounddevice as sd
+from scipy.io.wavfile import write
+import openai
+import os
+
+# --- Configuration ---
+# Make sure to set your OpenAI API key as an environment variable
+# export OPENAI_API_KEY='your-key-here'
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+SAMPLE_RATE = 44100  # Hertz
+DURATION = 5  # seconds
+FILENAME = "command.wav"
+
+# --- Main Logic ---
+def record_and_transcribe():
+    """Records audio from the microphone and transcribes it using Whisper."""
+    # 1. Record Audio
+    print("Recording for 5 seconds... Speak your command now!")
+    myrecording = sd.rec(int(DURATION * SAMPLE_RATE), samplerate=SAMPLE_RATE, channels=2)
+    sd.wait()  # Wait until recording is finished
+    write(FILENAME, SAMPLE_RATE, myrecording)  # Save as WAV file
+    print(f"Recording saved to {FILENAME}")
+
+    # 2. Transcribe Audio
+    print("Sending to Whisper for transcription...")
+    try:
+        with open(FILENAME, "rb") as audio_file:
+            transcription = openai.audio.transcriptions.create(
+                model="whisper-1",
+                file=audio_file
+            )
+        command_text = transcription.text
+        print(f"Whisper heard: '{command_text}'")
+        return command_text
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
+
+if __name__ == '__main__':
+    record_and_transcribe()
+
+```
+
+### How It Works
+1.  **Record:** We use the `sounddevice` library to capture 5 seconds of audio from the default microphone and save it as `command.wav`.
+2.  **Transcribe:** We open the saved `.wav` file and send its binary content to the `openai.audio.transcriptions.create` endpoint. We specify `whisper-1` as the model.
+3.  **Return Text:** The API returns a transcription object, and we extract the transcribed text.
+
+This transcribed text (e.g., "robot, please pick up the red block") can now be passed to the next stage of our VLA pipeline: the LLM planner.
