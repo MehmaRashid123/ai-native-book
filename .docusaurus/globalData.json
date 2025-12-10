@@ -1,0 +1,105 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "intro",
+          "docs": [
+            {
+              "id": "intro",
+              "path": "/docs/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1-ros2/architecture",
+              "path": "/docs/module-1-ros2/architecture"
+            },
+            {
+              "id": "module-1-ros2/python-agents",
+              "path": "/docs/module-1-ros2/python-agents"
+            },
+            {
+              "id": "module-1-ros2/urdf",
+              "path": "/docs/module-1-ros2/urdf"
+            },
+            {
+              "id": "module-1/intro-ros2",
+              "path": "/docs/module-1/intro-ros2",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1/python-agents",
+              "path": "/docs/module-1/python-agents",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1/urdf",
+              "path": "/docs/module-1/urdf",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2/gazebo-physics",
+              "path": "/docs/module-2/gazebo-physics",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2/sensors",
+              "path": "/docs/module-2/sensors",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2/unity-rendering",
+              "path": "/docs/module-2/unity-rendering",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-3/isaac-sim",
+              "path": "/docs/module-3/isaac-sim",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-3/nav2",
+              "path": "/docs/module-3/nav2",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-3/vslam",
+              "path": "/docs/module-3/vslam",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4/capstone",
+              "path": "/docs/module-4/capstone",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4/llm-planning",
+              "path": "/docs/module-4/llm-planning",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4/whisper-voice",
+              "path": "/docs/module-4/whisper-voice",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/docs/intro",
+                "label": "intro"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

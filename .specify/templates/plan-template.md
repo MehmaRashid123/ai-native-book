@@ -31,7 +31,16 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+### Required Compliance Checks:
+- **Frontend Architecture**: Verify implementation uses Docusaurus 3.x with React/TypeScript and Tailwind CSS (no default Docusaurus classic styles)
+- **UI/UX Compliance**: Confirm cyberpunk/industrial robotics theme with dark mode default and specified accent colors (neon green, electric blue, warning orange)
+- **Tech Stack Alignment**: Validate FastAPI backend with Neon (PostgreSQL) and Qdrant (Vector DB) integration
+- **Authentication**: Ensure Better-Auth implementation for user personalization
+- **ROS 2 Code Standards**: Verify all robot control code uses Python `rclpy` for ROS 2 Humble/Iron compatibility
+- **Content Structure**: Confirm alignment with 4-module syllabus (Modules 1-4 + Capstone)
+- **RAG Agent**: Verify Vector agent implementation with context-awareness and hardware compatibility checks
+- **Localization**: Confirm Urdu translation toggle available at chapter start
+- **Deployment**: Validate GitHub Pages frontend with optional Vercel API deployment
 
 ## Project Structure
 

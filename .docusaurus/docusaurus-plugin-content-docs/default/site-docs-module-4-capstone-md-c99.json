@@ -1,0 +1,23 @@
+{
+  "id": "module-4/capstone",
+  "title": "Capstone: Autonomous Humanoid",
+  "description": "The capstone project brings together all concepts learned throughout the course to create an autonomous humanoid robot capable of understanding natural language commands and executing complex tasks.",
+  "source": "@site/docs/module-4/capstone.md",
+  "sourceDirName": "module-4",
+  "slug": "/module-4/capstone",
+  "permalink": "/docs/module-4/capstone",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-4/capstone.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "LLM Cognitive Planning",
+    "permalink": "/docs/module-4/llm-planning"
+  }
+}

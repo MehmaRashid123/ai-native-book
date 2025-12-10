@@ -1,0 +1,27 @@
+{
+  "id": "module-1/python-agents",
+  "title": "Python Agents with rclpy",
+  "description": "In this section, we'll explore how to create intelligent agents using Python and the Robot Operating System 2 (ROS 2) through the rclpy library.",
+  "source": "@site/docs/module-1/python-agents.md",
+  "sourceDirName": "module-1",
+  "slug": "/module-1/python-agents",
+  "permalink": "/docs/module-1/python-agents",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-1/python-agents.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Module 1: The Robotic Nervous System (ROS 2)",
+    "permalink": "/docs/module-1/intro-ros2"
+  },
+  "next": {
+    "title": "URDF: Robot Description Format",
+    "permalink": "/docs/module-1/urdf"
+  }
+}

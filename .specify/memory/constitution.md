@@ -1,55 +1,45 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 1.0.0 → 1.1.0
+- Modified principles: [PRINCIPLE_1_NAME] → Physical AI & Humanoid Robotics Education, [PRINCIPLE_2_NAME] → Docusaurus Frontend Architecture, [PRINCIPLE_3_NAME] → Cyberpunk Industrial UI/UX, [PRINCIPLE_4_NAME] → ROS 2 Python Code Standards, [PRINCIPLE_5_NAME] → RAG Agent Intelligence, [PRINCIPLE_6_NAME] → Localization & Translation Requirements
+- Added sections: Content Architecture, Intelligence & Agent Guidelines, Language & Localization
+- Removed sections: None
+- Templates requiring updates: ✅ .specify/templates/plan-template.md, ✅ .specify/templates/spec-template.md, ✅ .specify/templates/tasks-template.md
+- Follow-up TODOs: None
+-->
+
+# Physical AI & Humanoid Robotics Textbook Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Physical AI & Humanoid Robotics Education
+The primary mission is to create a unified educational resource that bridges digital AI (LLMs/Agents) and physical embodiment (Robots). All content, code examples, and learning materials must focus on practical implementation of robotics concepts with emphasis on modern AI integration. The system must serve as both a learning platform and practical reference for building embodied intelligence systems.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Docusaurus Frontend Architecture
+The frontend must be built using Docusaurus 3.x with React/TypeScript, completely replacing default Docusaurus classic styles with Tailwind CSS. The system must deploy to GitHub Pages with FastAPI backend (deployable to Vercel) for RAG agent functionality. All UI components must be responsive and optimized for both desktop and mobile learning experiences.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Cyberpunk Industrial UI/UX
+The visual identity must follow a "Cyberpunk/Industrial Robotics" theme with dark mode as default, using neon green (NVIDIA), electric blue (ROS 2), and warning orange (Hardware Safety) as accent colors. The landing page must feature high-tech imagery, 3D elements, or strong typographic hierarchy emphasizing "Embodied Intelligence" without using default Docusaurus banners.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### ROS 2 Python Code Standards
+All robot control code must be Python-based using `rclpy` for ROS 2 Humble/Iron compatibility. Every code block must be syntactically correct and verified for the target ROS 2 distribution. Architecture diagrams must use Mermaid.js for ROS Nodes/Topics visualization. Code examples must follow ROS 2 best practices and be testable in both simulation and real hardware contexts.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### RAG Agent Intelligence
+The embedded "Vector" agent must function as a "Lab Assistant" with RAG capabilities answering questions strictly based on book content. The agent must be context-aware of the current chapter, perform hardware compatibility checks (especially NVIDIA Isaac Sim RTX GPU requirements), and adapt responses based on user's authentication status and defined hardware background.
 
-### [PRINCIPLE_6_NAME]
+### Localization & Translation Requirements
+The system must support multilingual content with primary English (Technical) delivery and mandatory Urdu translation toggle available at the start of every chapter. Translation functionality must be seamlessly integrated without disrupting the learning flow, and all new content must be designed with localization in mind from the initial development phase.
 
+## Content Architecture
+The book must follow the specific Hackathon syllabus with 4 Course Modules: Module 1 (The Robotic Nervous System - ROS 2, Nodes, rclpy, URDF), Module 2 (The Digital Twin - Gazebo Physics, Unity Rendering, Sensors), Module 3 (The AI-Robot Brain - NVIDIA Isaac Sim, VSLAM, Nav2), Module 4 (Vision-Language-Action - OpenAI Whisper, LLM Cognitive Planning), and Capstone (The Autonomous Humanoid). Navigation must be streamlined with a sidebar for these modules.
 
-[PRINCIPLE__DESCRIPTION]
+## Intelligence & Agent Guidelines
+The embedded chatbot ("Vector" agent) acts as a "Lab Assistant" with strict RAG functionality based on book content only. It must be context-aware of user's current chapter, warn about hardware requirements (MacBook/Raspberry Pi users need RTX GPU for NVIDIA Isaac Sim), and personalize responses based on authenticated user's hardware background stored in Better-Auth. The agent must never hallucinate information outside the book content.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
-
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Language & Localization
+Primary language is English (Technical) with mandatory Urdu translation toggle at the start of every chapter. The translation system must maintain technical accuracy while being accessible to Urdu-speaking students. All new content additions must consider localization requirements from the initial planning phase.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This constitution governs all development, design, and content decisions for the Physical AI & Humanoid Robotics Textbook project. All PRs and reviews must verify compliance with these principles. Any architectural changes affecting the core tech stack (Docusaurus, FastAPI, ROS 2, RAG agent) require explicit approval. The constitution must be referenced during all planning sessions to ensure alignment with the project mission.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.1.0 | **Ratified**: 2025-12-10 | **Last Amended**: 2025-12-10

@@ -48,9 +48,13 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with [framework] dependencies
-- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T001 Create Docusaurus 3.x project structure with React/TypeScript
+- [ ] T002 Install and configure Tailwind CSS for custom styling (replace default Docusaurus styles)
+- [ ] T003 [P] Configure project with cyberpunk/industrial robotics theme (dark mode, accent colors)
+- [ ] T004 Set up GitHub Pages deployment configuration
+- [ ] T005 Initialize FastAPI backend project for RAG agent functionality
+- [ ] T006 Configure Neon (PostgreSQL) and Qdrant (vector DB) connections
+- [ ] T007 Install and configure Better-Auth for user authentication
 
 ---
 
@@ -62,12 +66,14 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T008 Setup database schema for user data in Neon (PostgreSQL) with migrations framework
+- [ ] T009 [P] Implement Better-Auth authentication/authorization framework with user profile storage
+- [ ] T010 [P] Setup FastAPI routing and middleware structure for RAG agent API
+- [ ] T011 Create base models for user profiles, content embeddings, and chapter tracking
+- [ ] T012 Configure error handling and logging infrastructure for both frontend and backend
+- [ ] T013 Setup environment configuration management for GitHub Pages and Vercel deployment
+- [ ] T014 Configure Qdrant vector database for content embeddings storage and retrieval
+- [ ] T015 Set up content processing pipeline for RAG agent training data
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -83,17 +89,17 @@ Examples of foundational tasks (adjust based on your project):
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T010 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T011 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T016 [P] [US1] Contract test for RAG agent endpoint in tests/contract/test_rag_agent.py
+- [ ] T017 [P] [US1] Integration test for Vector agent chat functionality in tests/integration/test_vector_agent.py
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
-- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T016 [US1] Add validation and error handling
-- [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T018 [P] [US1] Create User model with hardware background storage in src/models/user.py
+- [ ] T019 [P] [US1] Create Content model for book chapters in src/models/content.py
+- [ ] T020 [US1] Implement Vector agent RAG service in src/services/vector_agent.py (depends on T018, T019)
+- [ ] T021 [US1] Implement chat endpoint in src/api/chat.py
+- [ ] T022 [US1] Add validation and error handling for RAG queries
+- [ ] T023 [US1] Add logging for Vector agent operations
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -107,15 +113,15 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 2 (OPTIONAL - only if tests requested) ⚠️
 
-- [ ] T018 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T019 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T024 [P] [US2] Contract test for content navigation API in tests/contract/test_navigation.py
+- [ ] T025 [P] [US2] Integration test for 4-module syllabus navigation in tests/integration/test_syllabus.py
 
 ### Implementation for User Story 2
 
-- [ ] T020 [P] [US2] Create [Entity] model in src/models/[entity].py
-- [ ] T021 [US2] Implement [Service] in src/services/[service].py
-- [ ] T022 [US2] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T023 [US2] Integrate with User Story 1 components (if needed)
+- [ ] T026 [P] [US2] Create Module model for 4-module structure in src/models/module.py
+- [ ] T027 [US2] Implement content navigation service in src/services/navigation.py
+- [ ] T028 [US2] Implement syllabus API endpoints in src/api/syllabus.py
+- [ ] T029 [US2] Create React components for module navigation in src/components/navigation/
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -129,14 +135,15 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 3 (OPTIONAL - only if tests requested) ⚠️
 
-- [ ] T024 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T025 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T030 [P] [US3] Contract test for translation API in tests/contract/test_translation.py
+- [ ] T031 [P] [US3] Integration test for Urdu translation toggle in tests/integration/test_localization.py
 
 ### Implementation for User Story 3
 
-- [ ] T026 [P] [US3] Create [Entity] model in src/models/[entity].py
-- [ ] T027 [US3] Implement [Service] in src/services/[service].py
-- [ ] T028 [US3] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T032 [P] [US3] Create Translation model for English-Urdu content pairs in src/models/translation.py
+- [ ] T033 [US3] Implement translation service in src/services/translation.py
+- [ ] T034 [US3] Implement translation API endpoints in src/api/translation.py
+- [ ] T035 [US3] Create React components for language toggle in src/components/translation/
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -150,12 +157,15 @@ Examples of foundational tasks (adjust based on your project):
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] TXXX [P] Documentation updates in docs/
-- [ ] TXXX Code cleanup and refactoring
-- [ ] TXXX Performance optimization across all stories
-- [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
-- [ ] TXXX Security hardening
-- [ ] TXXX Run quickstart.md validation
+- [ ] TXXX [P] Documentation updates for ROS 2 Python code examples in docs/
+- [ ] TXXX Code cleanup and refactoring for rclpy compatibility
+- [ ] TXXX Performance optimization for Vector RAG agent queries
+- [ ] TXXX [P] Additional unit tests for ROS 2 code validation in tests/unit/
+- [ ] TXXX Security hardening for hardware compatibility warnings
+- [ ] TXXX Run quickstart.md validation for 4-module syllabus
+- [ ] TXXX Implement Mermaid.js diagrams for ROS Nodes/Topics visualization
+- [ ] TXXX Create landing page with high-tech imagery and "Embodied Intelligence" focus
+- [ ] TXXX Validate NVIDIA Isaac Sim RTX GPU requirement warnings in Vector agent
 
 ---
 

@@ -84,16 +84,23 @@
 
 ### Functional Requirements
 
-- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
-- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
-- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
-- **FR-005**: System MUST [behavior, e.g., "log all security events"]
+- **FR-001**: System MUST use Docusaurus 3.x with React/TypeScript and Tailwind CSS for frontend (no default Docusaurus classic styles)
+- **FR-002**: System MUST implement cyberpunk/industrial robotics UI theme with dark mode default and specified accent colors (neon green, electric blue, warning orange)
+- **FR-003**: System MUST deploy to GitHub Pages with optional FastAPI backend on Vercel for RAG agent functionality
+- **FR-004**: System MUST implement Better-Auth for user authentication and personalization features
+- **FR-005**: System MUST support ROS 2 Python code examples using `rclpy` for Humble/Iron compatibility
+- **FR-006**: System MUST follow 4-module syllabus structure: Module 1 (ROS 2, Nodes, rclpy, URDF), Module 2 (Gazebo, Unity, Sensors), Module 3 (Isaac Sim, VSLAM, Nav2), Module 4 (Whisper, LLM Planning), Capstone (Autonomous Humanoid)
+- **FR-007**: System MUST include Vector RAG agent functioning as "Lab Assistant" with context-awareness and hardware compatibility checks
+- **FR-008**: System MUST provide Urdu translation toggle at the start of every chapter
+- **FR-009**: System MUST use Mermaid.js for all ROS architecture diagrams (Nodes/Topics visualization)
+- **FR-010**: System MUST store user data in Neon (serverless Postgres) and content embeddings in Qdrant (vector DB)
 
-*Example of marking unclear requirements:*
+*Constitution compliance requirements:*
 
-- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+- **FR-011**: Landing page MUST feature high-tech imagery, 3D elements, or strong typographic hierarchy emphasizing "Embodied Intelligence" (no default Docusaurus banner)
+- **FR-012**: Vector agent MUST answer questions strictly based on book content only (no hallucination)
+- **FR-013**: Vector agent MUST warn users about NVIDIA Isaac Sim RTX GPU requirements when hardware mentioned (MacBook/Raspberry Pi)
+- **FR-014**: Vector agent MUST adapt responses based on authenticated user's hardware background
 
 ### Key Entities *(include if feature involves data)*
 

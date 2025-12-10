@@ -1,0 +1,27 @@
+{
+  "id": "module-2/unity-rendering",
+  "title": "Unity Rendering for Robotics",
+  "description": "Unity provides high-fidelity rendering capabilities that can be integrated with robotics simulation for photorealistic environments and sensor simulation.",
+  "source": "@site/docs/module-2/unity-rendering.md",
+  "sourceDirName": "module-2",
+  "slug": "/module-2/unity-rendering",
+  "permalink": "/docs/module-2/unity-rendering",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-2/unity-rendering.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Module 2: The Digital Twin (Gazebo)",
+    "permalink": "/docs/module-2/gazebo-physics"
+  },
+  "next": {
+    "title": "Sensor Simulation",
+    "permalink": "/docs/module-2/sensors"
+  }
+}

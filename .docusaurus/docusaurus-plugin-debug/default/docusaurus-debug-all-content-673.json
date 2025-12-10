@@ -1,0 +1,526 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "loadedVersions": [
+        {
+          "versionName": "current",
+          "label": "Next",
+          "banner": null,
+          "badge": false,
+          "noIndex": false,
+          "className": "docs-version-current",
+          "path": "/docs",
+          "tagsPath": "/docs/tags",
+          "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs",
+          "editUrlLocalized": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/i18n/en/docusaurus-plugin-content-docs/current",
+          "isLast": true,
+          "routePriority": -1,
+          "sidebarFilePath": "D:\\robotics book\\sidebars.js",
+          "contentPath": "D:\\robotics book\\docs",
+          "contentPathLocalized": "D:\\robotics book\\i18n\\en\\docusaurus-plugin-content-docs\\current",
+          "docs": [
+            {
+              "id": "intro",
+              "title": "Introduction",
+              "description": "Welcome to the Physical AI & Humanoid Robotics textbook! This comprehensive course bridges the gap between digital AI (LLMs/Agents) and physical embodiment (Robots), teaching you how to create embodied intelligence systems.",
+              "source": "@site/docs/intro.md",
+              "sourceDirName": ".",
+              "slug": "/intro",
+              "permalink": "/docs/intro",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/intro.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "next": {
+                "title": "Module 1: The Robotic Nervous System (ROS 2)",
+                "permalink": "/docs/module-1/intro-ros2"
+              }
+            },
+            {
+              "id": "module-1-ros2/architecture",
+              "title": "Understanding the Graph: Nodes, Topics, & Services",
+              "description": "The Nervous System of Robotics",
+              "source": "@site/docs/01-module-1-ros2/01-architecture.md",
+              "sourceDirName": "01-module-1-ros2",
+              "slug": "/module-1-ros2/architecture",
+              "permalink": "/docs/module-1-ros2/architecture",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/01-module-1-ros2/01-architecture.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              }
+            },
+            {
+              "id": "module-1-ros2/python-agents",
+              "title": "Building Your First Agent with rclpy",
+              "description": "Introduction to Python Nodes",
+              "source": "@site/docs/01-module-1-ros2/02-python-agents.md",
+              "sourceDirName": "01-module-1-ros2",
+              "slug": "/module-1-ros2/python-agents",
+              "permalink": "/docs/module-1-ros2/python-agents",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/01-module-1-ros2/02-python-agents.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 2,
+              "frontMatter": {
+                "sidebar_position": 2
+              }
+            },
+            {
+              "id": "module-1-ros2/urdf",
+              "title": "Defining the Body: Introduction to URDF",
+              "description": "The Robot's Blueprint",
+              "source": "@site/docs/01-module-1-ros2/03-urdf.md",
+              "sourceDirName": "01-module-1-ros2",
+              "slug": "/module-1-ros2/urdf",
+              "permalink": "/docs/module-1-ros2/urdf",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/01-module-1-ros2/03-urdf.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 3,
+              "frontMatter": {
+                "sidebar_position": 3
+              }
+            },
+            {
+              "id": "module-1/intro-ros2",
+              "title": "Module 1: The Robotic Nervous System (ROS 2)",
+              "description": "Welcome to the foundation of robotics - the Robot Operating System (ROS 2). In this module, you'll learn how robots communicate and coordinate their actions through a distributed network of nodes, topics, and services.",
+              "source": "@site/docs/module-1/intro-ros2.md",
+              "sourceDirName": "module-1",
+              "slug": "/module-1/intro-ros2",
+              "permalink": "/docs/module-1/intro-ros2",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-1/intro-ros2.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/docs/intro"
+              },
+              "next": {
+                "title": "Python Agents with rclpy",
+                "permalink": "/docs/module-1/python-agents"
+              }
+            },
+            {
+              "id": "module-1/python-agents",
+              "title": "Python Agents with rclpy",
+              "description": "In this section, we'll explore how to create intelligent agents using Python and the Robot Operating System 2 (ROS 2) through the rclpy library.",
+              "source": "@site/docs/module-1/python-agents.md",
+              "sourceDirName": "module-1",
+              "slug": "/module-1/python-agents",
+              "permalink": "/docs/module-1/python-agents",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-1/python-agents.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 2,
+              "frontMatter": {
+                "sidebar_position": 2
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Module 1: The Robotic Nervous System (ROS 2)",
+                "permalink": "/docs/module-1/intro-ros2"
+              },
+              "next": {
+                "title": "URDF: Robot Description Format",
+                "permalink": "/docs/module-1/urdf"
+              }
+            },
+            {
+              "id": "module-1/urdf",
+              "title": "URDF: Robot Description Format",
+              "description": "URDF (Unified Robot Description Format) is an XML format used to describe robot models in ROS. It defines the physical and visual properties of a robot.",
+              "source": "@site/docs/module-1/urdf.md",
+              "sourceDirName": "module-1",
+              "slug": "/module-1/urdf",
+              "permalink": "/docs/module-1/urdf",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-1/urdf.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 3,
+              "frontMatter": {
+                "sidebar_position": 3
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Python Agents with rclpy",
+                "permalink": "/docs/module-1/python-agents"
+              },
+              "next": {
+                "title": "Module 2: The Digital Twin (Gazebo)",
+                "permalink": "/docs/module-2/gazebo-physics"
+              }
+            },
+            {
+              "id": "module-2/gazebo-physics",
+              "title": "Module 2: The Digital Twin (Gazebo)",
+              "description": "In this module, you'll explore the world of robotics simulation, where physical robots are mirrored in digital environments. Simulation is crucial for testing algorithms safely before deploying them on real hardware.",
+              "source": "@site/docs/module-2/gazebo-physics.md",
+              "sourceDirName": "module-2",
+              "slug": "/module-2/gazebo-physics",
+              "permalink": "/docs/module-2/gazebo-physics",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-2/gazebo-physics.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "URDF: Robot Description Format",
+                "permalink": "/docs/module-1/urdf"
+              },
+              "next": {
+                "title": "Unity Rendering for Robotics",
+                "permalink": "/docs/module-2/unity-rendering"
+              }
+            },
+            {
+              "id": "module-2/sensors",
+              "title": "Sensor Simulation",
+              "description": "In robotics simulation, accurate sensor modeling is crucial for developing and testing perception algorithms before deployment on real hardware.",
+              "source": "@site/docs/module-2/sensors.md",
+              "sourceDirName": "module-2",
+              "slug": "/module-2/sensors",
+              "permalink": "/docs/module-2/sensors",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-2/sensors.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 4,
+              "frontMatter": {
+                "sidebar_position": 4
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Unity Rendering for Robotics",
+                "permalink": "/docs/module-2/unity-rendering"
+              },
+              "next": {
+                "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac Sim)",
+                "permalink": "/docs/module-3/isaac-sim"
+              }
+            },
+            {
+              "id": "module-2/unity-rendering",
+              "title": "Unity Rendering for Robotics",
+              "description": "Unity provides high-fidelity rendering capabilities that can be integrated with robotics simulation for photorealistic environments and sensor simulation.",
+              "source": "@site/docs/module-2/unity-rendering.md",
+              "sourceDirName": "module-2",
+              "slug": "/module-2/unity-rendering",
+              "permalink": "/docs/module-2/unity-rendering",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-2/unity-rendering.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 3,
+              "frontMatter": {
+                "sidebar_position": 3
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Module 2: The Digital Twin (Gazebo)",
+                "permalink": "/docs/module-2/gazebo-physics"
+              },
+              "next": {
+                "title": "Sensor Simulation",
+                "permalink": "/docs/module-2/sensors"
+              }
+            },
+            {
+              "id": "module-3/isaac-sim",
+              "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac Sim)",
+              "description": "This module focuses on NVIDIA's Isaac Sim platform, which combines physics simulation with advanced rendering to create highly realistic digital twins for AI development.",
+              "source": "@site/docs/module-3/isaac-sim.md",
+              "sourceDirName": "module-3",
+              "slug": "/module-3/isaac-sim",
+              "permalink": "/docs/module-3/isaac-sim",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-3/isaac-sim.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Sensor Simulation",
+                "permalink": "/docs/module-2/sensors"
+              },
+              "next": {
+                "title": "Visual SLAM",
+                "permalink": "/docs/module-3/vslam"
+              }
+            },
+            {
+              "id": "module-3/nav2",
+              "title": "Navigation 2 (Nav2)",
+              "description": "Navigation 2 (Nav2) is the navigation stack for ROS 2, providing path planning, obstacle avoidance, and localization capabilities for mobile robots.",
+              "source": "@site/docs/module-3/nav2.md",
+              "sourceDirName": "module-3",
+              "slug": "/module-3/nav2",
+              "permalink": "/docs/module-3/nav2",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-3/nav2.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 4,
+              "frontMatter": {
+                "sidebar_position": 4
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Visual SLAM",
+                "permalink": "/docs/module-3/vslam"
+              },
+              "next": {
+                "title": "Module 4: Vision-Language-Action (VLA)",
+                "permalink": "/docs/module-4/whisper-voice"
+              }
+            },
+            {
+              "id": "module-3/vslam",
+              "title": "Visual SLAM",
+              "description": "Visual Simultaneous Localization and Mapping (VSLAM) is a critical technology for autonomous robots to understand and navigate their environment.",
+              "source": "@site/docs/module-3/vslam.md",
+              "sourceDirName": "module-3",
+              "slug": "/module-3/vslam",
+              "permalink": "/docs/module-3/vslam",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-3/vslam.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 3,
+              "frontMatter": {
+                "sidebar_position": 3
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac Sim)",
+                "permalink": "/docs/module-3/isaac-sim"
+              },
+              "next": {
+                "title": "Navigation 2 (Nav2)",
+                "permalink": "/docs/module-3/nav2"
+              }
+            },
+            {
+              "id": "module-4/capstone",
+              "title": "Capstone: Autonomous Humanoid",
+              "description": "The capstone project brings together all concepts learned throughout the course to create an autonomous humanoid robot capable of understanding natural language commands and executing complex tasks.",
+              "source": "@site/docs/module-4/capstone.md",
+              "sourceDirName": "module-4",
+              "slug": "/module-4/capstone",
+              "permalink": "/docs/module-4/capstone",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-4/capstone.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 4,
+              "frontMatter": {
+                "sidebar_position": 4
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "LLM Cognitive Planning",
+                "permalink": "/docs/module-4/llm-planning"
+              }
+            },
+            {
+              "id": "module-4/llm-planning",
+              "title": "LLM Cognitive Planning",
+              "description": "Large Language Models (LLMs) can be used for high-level cognitive planning in robotics, enabling robots to understand complex tasks and generate action sequences.",
+              "source": "@site/docs/module-4/llm-planning.md",
+              "sourceDirName": "module-4",
+              "slug": "/module-4/llm-planning",
+              "permalink": "/docs/module-4/llm-planning",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-4/llm-planning.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 3,
+              "frontMatter": {
+                "sidebar_position": 3
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Module 4: Vision-Language-Action (VLA)",
+                "permalink": "/docs/module-4/whisper-voice"
+              },
+              "next": {
+                "title": "Capstone: Autonomous Humanoid",
+                "permalink": "/docs/module-4/capstone"
+              }
+            },
+            {
+              "id": "module-4/whisper-voice",
+              "title": "Module 4: Vision-Language-Action (VLA)",
+              "description": "In the final module, you'll learn how to create robots that can understand human language, perceive their environment, and take appropriate actions - the essence of embodied AI.",
+              "source": "@site/docs/module-4/whisper-voice.md",
+              "sourceDirName": "module-4",
+              "slug": "/module-4/whisper-voice",
+              "permalink": "/docs/module-4/whisper-voice",
+              "draft": false,
+              "unlisted": false,
+              "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/module-4/whisper-voice.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Navigation 2 (Nav2)",
+                "permalink": "/docs/module-3/nav2"
+              },
+              "next": {
+                "title": "LLM Cognitive Planning",
+                "permalink": "/docs/module-4/llm-planning"
+              }
+            }
+          ],
+          "drafts": [],
+          "sidebars": {
+            "tutorialSidebar": [
+              {
+                "type": "doc",
+                "id": "intro"
+              },
+              {
+                "type": "category",
+                "label": "Module 1: The Robotic Nervous System (ROS 2)",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "module-1/intro-ros2"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "module-1/python-agents"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "module-1/urdf"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Module 2: The Digital Twin (Simulation)",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "module-2/gazebo-physics"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "module-2/unity-rendering"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "module-2/sensors"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Module 3: The AI-Robot Brain (NVIDIA Isaac)",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "module-3/isaac-sim"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "module-3/vslam"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "module-3/nav2"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Module 4: Vision-Language-Action (VLA)",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "module-4/whisper-voice"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "module-4/llm-planning"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "module-4/capstone"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "docusaurus-plugin-content-pages": {
+    "default": [
+      {
+        "type": "jsx",
+        "permalink": "/",
+        "source": "@site/src/pages/index.tsx"
+      }
+    ]
+  },
+  "docusaurus-plugin-debug": {},
+  "docusaurus-theme-classic": {},
+  "docusaurus-bootstrap-plugin": {},
+  "docusaurus-mdx-fallback-plugin": {}
+}
