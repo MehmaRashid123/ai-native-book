@@ -8,7 +8,7 @@ export default {
   "tagline": "Mastering the partnership between Humans, Agents, and Robots",
   "favicon": "img/favicon.ico",
   "url": "https://your-docusaurus-site.example.com",
-  "baseUrl": "/",
+  "baseUrl": "/ur/",
   "organizationName": "Panaversity",
   "projectName": "physical-ai-handbook",
   "onBrokenLinks": "warn",
