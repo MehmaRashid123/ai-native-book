@@ -12,7 +12,7 @@
       {
         "type": "link",
         "label": "Introduction",
-        "href": "/ur/docs/intro",
+        "href": "/docs/intro",
         "docId": "intro",
         "unlisted": false
       },
@@ -23,21 +23,21 @@
           {
             "type": "link",
             "label": "Module 1: The Robotic Nervous System (ROS 2)",
-            "href": "/ur/docs/module-1/intro-ros2",
+            "href": "/docs/module-1/intro-ros2",
             "docId": "module-1/intro-ros2",
             "unlisted": false
           },
           {
             "type": "link",
             "label": "Python Agents with rclpy",
-            "href": "/ur/docs/module-1/python-agents",
+            "href": "/docs/module-1/python-agents",
             "docId": "module-1/python-agents",
             "unlisted": false
           },
           {
             "type": "link",
             "label": "URDF: Robot Description Format",
-            "href": "/ur/docs/module-1/urdf",
+            "href": "/docs/module-1/urdf",
             "docId": "module-1/urdf",
             "unlisted": false
           }
@@ -52,21 +52,21 @@
           {
             "type": "link",
             "label": "Module 2: The Digital Twin (Gazebo)",
-            "href": "/ur/docs/module-2/gazebo-physics",
+            "href": "/docs/module-2/gazebo-physics",
             "docId": "module-2/gazebo-physics",
             "unlisted": false
           },
           {
             "type": "link",
             "label": "Unity Rendering for Robotics",
-            "href": "/ur/docs/module-2/unity-rendering",
+            "href": "/docs/module-2/unity-rendering",
             "docId": "module-2/unity-rendering",
             "unlisted": false
           },
           {
             "type": "link",
             "label": "Sensor Simulation",
-            "href": "/ur/docs/module-2/sensors",
+            "href": "/docs/module-2/sensors",
             "docId": "module-2/sensors",
             "unlisted": false
           }
@@ -81,21 +81,21 @@
           {
             "type": "link",
             "label": "Module 3: The AI-Robot Brain (NVIDIA Isaac Sim)",
-            "href": "/ur/docs/module-3/isaac-sim",
+            "href": "/docs/module-3/isaac-sim",
             "docId": "module-3/isaac-sim",
             "unlisted": false
           },
           {
             "type": "link",
             "label": "Visual SLAM",
-            "href": "/ur/docs/module-3/vslam",
+            "href": "/docs/module-3/vslam",
             "docId": "module-3/vslam",
             "unlisted": false
           },
           {
             "type": "link",
             "label": "Navigation 2 (Nav2)",
-            "href": "/ur/docs/module-3/nav2",
+            "href": "/docs/module-3/nav2",
             "docId": "module-3/nav2",
             "unlisted": false
           }
@@ -110,21 +110,21 @@
           {
             "type": "link",
             "label": "Module 4: Vision-Language-Action (VLA)",
-            "href": "/ur/docs/module-4/whisper-voice",
+            "href": "/docs/module-4/whisper-voice",
             "docId": "module-4/whisper-voice",
             "unlisted": false
           },
           {
             "type": "link",
             "label": "LLM Cognitive Planning",
-            "href": "/ur/docs/module-4/llm-planning",
+            "href": "/docs/module-4/llm-planning",
             "docId": "module-4/llm-planning",
             "unlisted": false
           },
           {
             "type": "link",
             "label": "Capstone: Autonomous Humanoid",
-            "href": "/ur/docs/module-4/capstone",
+            "href": "/docs/module-4/capstone",
             "docId": "module-4/capstone",
             "unlisted": false
           }
