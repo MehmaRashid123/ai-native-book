@@ -1,0 +1,27 @@
+{
+  "id": "ros2/urdf",
+  "title": "Robot Anatomy (URDF)",
+  "description": "URDF (Unified Robot Description Format) is an XML file format used in ROS to describe all elements of a robot. It's like a blueprint that defines the robot's physical structure.",
+  "source": "@site/docs/01-ros2/urdf.mdx",
+  "sourceDirName": "01-ros2",
+  "slug": "/ros2/urdf",
+  "permalink": "/docs/ros2/urdf",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3,
+    "title": "Robot Anatomy (URDF)"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Python Agents with rclpy",
+    "permalink": "/docs/ros2/python-agents"
+  },
+  "next": {
+    "title": "Welcome to the Textbook",
+    "permalink": "/docs/intro"
+  }
+}

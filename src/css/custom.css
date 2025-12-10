@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ifm-color-primary: #10b981; /* Neon Green */
+  --ifm-color-primary-dark: #059669;
+  --ifm-color-primary-darker: #047857;
+  --ifm-color-primary-darkest: #036048;
+  --ifm-color-primary-light: #34d399;
+  --ifm-color-primary-lighter: #6ee7b7;
+  --ifm-color-primary-lightest: #a7f3d0;
+  --ifm-code-font-size: 95%;
+}
+
+/* Dark theme variables */
+html[data-theme='dark'] {
+  --ifm-background-color: #0f172a; /* slate-900 */
+  --ifm-background-surface-color: #1e293b; /* slate-800 */
+  --ifm-navbar-background-color: #0f172a; /* slate-900 */
+  --ifm-footer-background-color: #0f172a; /* slate-900 */
+  --ifm-color-content: #f1f5f9; /* slate-100 */
+  --ifm-color-content-secondary: #cbd5e1; /* slate-200 */
+}
+
+/* Additional dark theme overrides */
+html[data-theme='dark'] {
+  --ifm-hero-background-color: #0f172a;
+  --ifm-hero-text-color: #f8fafc; /* slate-50 */
+}
+
+/* Custom styles for the cyberpunk/industrial robotics theme */
+.hero--primary {
+  background-color: #0f172a; /* slate-900 */
+  color: #f8fafc; /* slate-50 */
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Custom button styles */
+.button--primary {
+  background-color: #10b981 !important; /* Neon Green */
+  border-color: #10b981 !important;
+}
+
+.button--primary:hover {
+  background-color: #059669 !important; /* Darker Neon Green */
+  border-color: #059669 !important;
+}
+
+/* Feature card styles */
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.2), 0 8px 10px -6px rgba(16, 185, 129, 0.2);
+  border-color: #10b981; /* Neon Green */
+}
+
+/* Module-specific styling */
+.module-1 { border-left: 4px solid #10b981; } /* Neon Green for ROS 2 */
+.module-2 { border-left: 4px solid #3b82f6; } /* Blue for Gazebo */
+.module-3 { border-left: 4px solid #8b5cf6; } /* Purple for Isaac Sim */
+.module-4 { border-left: 4px solid #f59e0b; } /* Amber for VLA */

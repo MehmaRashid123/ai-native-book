@@ -1,0 +1,27 @@
+{
+  "id": "ros2/fundamentals",
+  "title": "ROS 2 Fundamentals",
+  "description": "Welcome to the Robotic Nervous System. ROS (Robot Operating System) is the standard open-source framework for robotics. ROS 2 is the latest generation, designed to be more robust, secure, and ready for commercial applications.",
+  "source": "@site/docs/01-ros2/fundamentals.mdx",
+  "sourceDirName": "01-ros2",
+  "slug": "/ros2/fundamentals",
+  "permalink": "/docs/ros2/fundamentals",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "ROS 2 Fundamentals"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Defining the Body: Introduction to URDF",
+    "permalink": "/docs/module-1-ros2/urdf"
+  },
+  "next": {
+    "title": "Python Agents with rclpy",
+    "permalink": "/docs/ros2/python-agents"
+  }
+}

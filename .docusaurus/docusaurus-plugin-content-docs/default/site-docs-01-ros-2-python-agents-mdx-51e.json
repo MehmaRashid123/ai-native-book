@@ -1,0 +1,27 @@
+{
+  "id": "ros2/python-agents",
+  "title": "Python Agents with rclpy",
+  "description": "rclpy is the official Python client library for ROS 2. It allows you to write ROS 2 nodes, publishers, subscribers, and more, directly in Python. This is the primary way we will interface our AI models with the robot's hardware.",
+  "source": "@site/docs/01-ros2/python-agents.mdx",
+  "sourceDirName": "01-ros2",
+  "slug": "/ros2/python-agents",
+  "permalink": "/docs/ros2/python-agents",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2,
+    "title": "Python Agents with rclpy"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "ROS 2 Fundamentals",
+    "permalink": "/docs/ros2/fundamentals"
+  },
+  "next": {
+    "title": "Robot Anatomy (URDF)",
+    "permalink": "/docs/ros2/urdf"
+  }
+}

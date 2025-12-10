@@ -1,0 +1,27 @@
+{
+  "id": "isaac/isaac-sim-setup",
+  "title": "Setting up NVIDIA Isaac Sim",
+  "description": "NVIDIA Isaac Sim is a robotics simulation toolkit built on the NVIDIA Omniverse platform. It provides a photorealistic, physics-accurate, and AI-accelerated environment for developing, testing, and training robots.",
+  "source": "@site/docs/03-isaac/isaac-sim-setup.mdx",
+  "sourceDirName": "03-isaac",
+  "slug": "/isaac/isaac-sim-setup",
+  "permalink": "/docs/isaac/isaac-sim-setup",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "Setting up NVIDIA Isaac Sim"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "High-Fidelity Rendering with Unity",
+    "permalink": "/docs/simulation/unity-integration"
+  },
+  "next": {
+    "title": "Navigation and SLAM with Isaac ROS",
+    "permalink": "/docs/isaac/nav2-slam"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "intro/physical-ai",
+  "title": "Introduction to Physical AI",
+  "description": "Welcome to the frontier of artificial intelligence. This textbook is your guide to Embodied Intelligence, the paradigm shift that moves AI from purely digital realms into the physical world.",
+  "source": "@site/docs/00-intro/physical-ai.md",
+  "sourceDirName": "00-intro",
+  "slug": "/intro/physical-ai",
+  "permalink": "/docs/intro/physical-ai",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "Introduction to Physical AI"
+  },
+  "sidebar": "docs",
+  "next": {
+    "title": "The Hardware Lab",
+    "permalink": "/docs/intro/hardware-lab"
+  }
+}

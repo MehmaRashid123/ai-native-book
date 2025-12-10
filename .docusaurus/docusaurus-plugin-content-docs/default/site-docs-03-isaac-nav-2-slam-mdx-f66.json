@@ -1,0 +1,27 @@
+{
+  "id": "isaac/nav2-slam",
+  "title": "Navigation and SLAM with Isaac ROS",
+  "description": "Once your robot is in simulation, the next critical task is to give it autonomy. This means it needs to know where it is (Localization), what the world looks like (Mapping), and how to get from A to B (Path Planning).",
+  "source": "@site/docs/03-isaac/nav2-slam.mdx",
+  "sourceDirName": "03-isaac",
+  "slug": "/isaac/nav2-slam",
+  "permalink": "/docs/isaac/nav2-slam",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2,
+    "title": "Navigation and SLAM with Isaac ROS"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Setting up NVIDIA Isaac Sim",
+    "permalink": "/docs/isaac/isaac-sim-setup"
+  },
+  "next": {
+    "title": "Voice Commands with OpenAI Whisper",
+    "permalink": "/docs/vla/whisper-voice"
+  }
+}

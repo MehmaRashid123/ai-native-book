@@ -1,0 +1,27 @@
+{
+  "id": "simulation/unity-integration",
+  "title": "High-Fidelity Rendering with Unity",
+  "description": "While Gazebo is excellent for physics simulation, its visual rendering capabilities are functional but not photorealistic. For applications requiring high-fidelity graphics, such as generating synthetic training data or creating compelling Human-Robot Interaction (HRI) scenarios, we can turn to a game engine like Unity.",
+  "source": "@site/docs/02-simulation/unity-integration.mdx",
+  "sourceDirName": "02-simulation",
+  "slug": "/simulation/unity-integration",
+  "permalink": "/docs/simulation/unity-integration",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2,
+    "title": "High-Fidelity Rendering with Unity"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Gazebo Simulation",
+    "permalink": "/docs/simulation/gazebo"
+  },
+  "next": {
+    "title": "Setting up NVIDIA Isaac Sim",
+    "permalink": "/docs/isaac/isaac-sim-setup"
+  }
+}

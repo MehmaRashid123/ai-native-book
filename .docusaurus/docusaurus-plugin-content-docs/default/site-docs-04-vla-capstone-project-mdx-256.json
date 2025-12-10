@@ -1,0 +1,27 @@
+{
+  "id": "vla/capstone-project",
+  "title": "Capstone - The Autonomous Humanoid",
+  "description": "This final project is the culmination of everything you have learned. You will integrate all the modules—from ROS 2 fundamentals to VLA-based planning—to create an autonomous humanoid robot capable of understanding and executing a complex, high-level command.",
+  "source": "@site/docs/04-vla/capstone-project.mdx",
+  "sourceDirName": "04-vla",
+  "slug": "/vla/capstone-project",
+  "permalink": "/docs/vla/capstone-project",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3,
+    "title": "Capstone - The Autonomous Humanoid"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "LLMs for High-Level Planning",
+    "permalink": "/docs/vla/llm-planning"
+  },
+  "next": {
+    "title": "Module 1: The Robotic Nervous System (ROS 2)",
+    "permalink": "/docs/module-1/intro-ros2"
+  }
+}

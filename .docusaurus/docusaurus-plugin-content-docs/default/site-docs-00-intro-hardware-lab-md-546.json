@@ -1,0 +1,27 @@
+{
+  "id": "intro/hardware-lab",
+  "title": "The Hardware Lab",
+  "description": "To fully engage with this curriculum, you will need access to specific hardware. This guide details the recommended setup, from the powerful workstation that will run your simulations to the physical robot itself.",
+  "source": "@site/docs/00-intro/hardware-lab.md",
+  "sourceDirName": "00-intro",
+  "slug": "/intro/hardware-lab",
+  "permalink": "/docs/intro/hardware-lab",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2,
+    "title": "The Hardware Lab"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Introduction to Physical AI",
+    "permalink": "/docs/intro/physical-ai"
+  },
+  "next": {
+    "title": "Understanding the Graph: Nodes, Topics, & Services",
+    "permalink": "/docs/module-1-ros2/architecture"
+  }
+}
