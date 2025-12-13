@@ -1,12 +1,5 @@
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-// import useDocusaurusContext from '@docusaurus/useDocusaurusContext'; // Temporarily removed for debugging
-import Layout from '@theme/Layout';
-import Heading from '@theme/Heading';
-// import ModuleCard from '@site/src/components/ModuleCard'; // ModuleCard is removed
 import FloatingChatbotButton from '@site/src/components/FloatingChatbotButton'; // Import FloatingChatbotButton
-import { Button, Group, Text, Grid, List, Card } from '@mantine/core'; // Import Mantine Components
+import { Button, Group, Text, List, Card } from '@mantine/core'; // Import Mantine Components
 
 import styles from './index.module.css';
 
@@ -14,20 +7,13 @@ function HeroSection() {
   return (
     <header className={clsx('hero', styles.heroBanner)}>
       <div className="container">
-        <Grid align="center" justify="space-between" gutter="xl">
-          <Grid.Col span={{ base: 12, md: 6 }}>
-            <Heading as="h1" className={styles.heroTitle}>
-              PHYSICAL AI
-            </Heading>
-            <p className={styles.heroSubtitle}>Embodied Intelligence in the Physical World</p>
-            <Button variant="filled" color="neonCyan" size="xl" onClick={() => (window.location.href = '/docs/intro')} className={styles.heroButton}>
-              Start Learning (Mantine)
-            </Button>
-          </Grid.Col>
-          <Grid.Col span={{ base: 12, md: 6 }} className={styles.heroImageColumn}>
-            {/* Image background is applied to heroBanner, this column acts as a placeholder or can have overlay */}
-          </Grid.Col>
-        </Grid>
+        <Heading as="h1" className={styles.heroTitle}>
+          PHYSICAL AI
+        </Heading>
+        <p className={styles.heroSubtitle}>Embodied Intelligence in the Physical World</p>
+        <Button variant="filled" color="neonCyan" size="xl" onClick={() => (window.location.href = '/docs/intro')} className={styles.heroButton} mt="xl">
+          Start Learning (Mantine)
+        </Button>
       </div>
     </header>
   );
@@ -78,6 +64,8 @@ export default function Home(): ReactNode {
             </Button>
           </div>
         </section>
+
+
       </main>
       <FloatingChatbotButton />
     </Layout>
