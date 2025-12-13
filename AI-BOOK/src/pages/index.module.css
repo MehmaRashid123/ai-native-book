@@ -41,3 +41,30 @@
 /* .startLearningSection {
   padding: 4rem 0;
 } */
+
+.modulesSection {
+  padding: 4rem 0;
+  color: #eee;
+}
+
+.modulesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.moduleCard {
+  background-color: rgba(255, 255, 255, 0.05); /* Subtle background */
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 188, 212, 0.2); /* Neon cyan border */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.moduleCard:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--violet); /* Dual glow */
+  transform: translateY(-5px);
+}

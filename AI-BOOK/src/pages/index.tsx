@@ -46,34 +46,28 @@ export default function Home(): ReactNode {
         <section className={styles.modulesSection}>
           <div className="container">
             <Heading as="h2" className="text--center">Modules</Heading>
-            <List
-              spacing="md"
-              size="lg"
-              center
-              withPadding
-              className={styles.modulesList}
-            >
-              <List.Item>
-                <Text color="neonCyan" fw={700}>ROS 2 Nervous System:</Text>
-                <Text c="dimmed">Develop robust robot control architectures.</Text>
-              </List.Item>
-              <List.Item>
-                <Text color="neonCyan" fw={700}>Digital Twin Simulation:</Text>
-                <Text c="dimmed">Create and interact with virtual robot environments.</Text>
-              </List.Item>
-              <List.Item>
-                <Text color="neonCyan" fw={700}>NVIDIA Isaac AI:</Text>
-                <Text c="dimmed">Leverage advanced AI for robotic perception and control.</Text>
-              </List.Item>
-              <List.Item>
-                <Text color="neonCyan" fw={700}>Vision-Language-Action:</Text>
-                <Text c="dimmed">Integrate multimodal AI for intelligent robot behavior.</Text>
-              </List.Item>
-              <List.Item>
-                <Text color="neonCyan" fw={700}>Capstone Project:</Text>
-                <Text c="dimmed">Apply all learned skills to a real-world robotics challenge.</Text>
-              </List.Item>
-            </List>
+            <div className={styles.modulesGrid}>
+              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
+                <Text color="neonCyan" fw={700} fz="lg">ROS 2 Nervous System</Text>
+                <Text c="dimmed" mt="xs">Develop robust robot control architectures.</Text>
+              </Card>
+              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
+                <Text color="neonCyan" fw={700} fz="lg">Digital Twin Simulation</Text>
+                <Text c="dimmed" mt="xs">Create and interact with virtual robot environments.</Text>
+              </Card>
+              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
+                <Text color="neonCyan" fw={700} fz="lg">NVIDIA Isaac AI</Text>
+                <Text c="dimmed" mt="xs">Leverage advanced AI for robotic perception and control.</Text>
+              </Card>
+              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
+                <Text color="neonCyan" fw={700} fz="700" fz="lg">Vision-Language-Action</Text>
+                <Text c="dimmed" mt="xs">Integrate multimodal AI for intelligent robot behavior.</Text>
+              </Card>
+              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
+                <Text color="neonCyan" fw={700} fz="lg">Capstone Project</Text>
+                <Text c="dimmed" mt="xs">Apply all learned skills to a real-world robotics challenge.</Text>
+              </Card>
+            </div>
           </div>
         </section>
 
