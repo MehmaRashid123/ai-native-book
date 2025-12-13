@@ -1,3 +1,10 @@
+import type {ReactNode} from 'react';
+import clsx from 'clsx';
+import Link from '@docusaurus/Link';
+// import useDocusaurusContext from '@docusaurus/useDocusaurusContext'; // Temporarily removed for debugging
+import Layout from '@theme/Layout';
+import Heading from '@theme/Heading';
+// import ModuleCard from '@site/src/components/ModuleCard'; // ModuleCard is removed
 import FloatingChatbotButton from '@site/src/components/FloatingChatbotButton'; // Import FloatingChatbotButton
 import { Button, Group, Text, Grid, List } from '@mantine/core'; // Import Mantine Components
 
@@ -27,7 +34,8 @@ function HeroSection() {
 }
 
 export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
+  // const {siteConfig} = useDocusaurusContext(); // Temporarily removed for debugging
+  const siteConfig = { title: "My Site", tagline: "My Tagline" }; // Hardcoded placeholder for now
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
@@ -76,13 +84,8 @@ export default function Home(): ReactNode {
             </Button>
           </div>
         </section>
-
-
       </main>
       <FloatingChatbotButton />
     </Layout>
   );
 }
-
-
-
