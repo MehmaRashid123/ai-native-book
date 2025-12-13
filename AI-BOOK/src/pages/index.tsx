@@ -6,7 +6,7 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import ModuleCard from '@site/src/components/ModuleCard';
 import FloatingChatbotButton from '@site/src/components/FloatingChatbotButton'; // Import FloatingChatbotButton
-import { Button } from '@mantine/core'; // Import Mantine Button
+import { Button, Text, ActionIcon, Card, Progress, Group } from '@mantine/core'; // Import Mantine Components
 
 import styles from './index.module.css';
 
@@ -47,9 +47,44 @@ export default function Home(): ReactNode {
 
         <section className={clsx('margin-top--lg', 'text--center', styles.startLearningSection)}>
           <div className="container">
-            <Button component={Link} to="/docs/intro" size="xl" color="neonCyan">
-              Start Learning
+            <Button variant="filled" color="neonCyan" size="xl" onClick={() => (window.location.href = '/docs/intro')}>
+              Start Learning (Mantine)
             </Button>
+          </div>
+        </section>
+
+        <section className={clsx('margin-top--lg', styles.mantineComponentsSection)}>
+          <div className="container">
+            <Heading as="h2" className="text--center">Explore Mantine Components</Heading>
+            <div className={styles.mantineComponentsGrid}>
+              <Card shadow="sm" padding="lg" radius="md" withBorder>
+                <Group justify="space-between" mt="md" mb="xs">
+                  <Text fw={500} color="neonCyan">Data Stream</Text>
+                  <ActionIcon variant="filled" color="sciFiViolet" size="lg">
+                    {/* Placeholder for an icon */}
+                    <span style={{fontSize: '1.5rem'}}>⚡</span>
+                  </ActionIcon>
+                </Group>
+                <Text size="sm" c="dimmed">
+                  Monitoring real-time data flow from interconnected neural networks.
+                </Text>
+                <Progress value={75} color="neonCyan" size="xl" radius="xl" mt="md" />
+              </Card>
+
+              <Card shadow="sm" padding="lg" radius="md" withBorder>
+                <Group justify="space-between" mt="md" mb="xs">
+                  <Text fw={500} color="sciFiViolet">System Status</Text>
+                  <ActionIcon variant="filled" color="neonCyan" size="lg">
+                    {/* Placeholder for an icon */}
+                    <span style={{fontSize: '1.5rem'}}>⚙️</span>
+                  </ActionIcon>
+                </Group>
+                <Text size="sm" c="dimmed">
+                  Core AI processes are stable and operating within optimal parameters.
+                </Text>
+                <Progress value={90} color="sciFiViolet" size="xl" radius="xl" mt="md" />
+              </Card>
+            </div>
           </div>
         </section>
       </main>
