@@ -30,7 +30,7 @@ export default function Home(): ReactNode {
   // const {siteConfig} = useDocusaurusContext(); // Temporarily removed for debugging
   const siteConfig = { title: "My Site", tagline: "My Tagline" }; // Hardcoded placeholder for now
   return (
-    <React.Fragment> {/* Use explicit React.Fragment */}
+    <div> {/* Use a div as a single root element to bypass React.Fragment syntax issue */}
       <main>
         <HeroSection />
 
@@ -72,6 +72,7 @@ export default function Home(): ReactNode {
 
 
       </main>
-    </React.Fragment> {/* Close React Fragment */}
+      <FloatingChatbotButton />
+    </div> {/* Close div */}
   );
 }
