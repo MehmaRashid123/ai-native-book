@@ -6,6 +6,7 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import ModuleCard from '@site/src/components/ModuleCard';
 import FloatingChatbotButton from '@site/src/components/FloatingChatbotButton'; // Import FloatingChatbotButton
+import { Button } from '@mantine/core'; // Import Mantine Button
 
 import styles from './index.module.css';
 
@@ -46,9 +47,9 @@ export default function Home(): ReactNode {
 
         <section className={clsx('margin-top--lg', 'text--center', styles.startLearningSection)}>
           <div className="container">
-            <Link className="button button--primary button--lg" to="/docs/intro">
+            <Button component={Link} to="/docs/intro" size="xl" color="neonCyan">
               Start Learning
-            </Link>
+            </Button>
           </div>
         </section>
       </main>
