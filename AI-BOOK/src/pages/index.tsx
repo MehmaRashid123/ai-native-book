@@ -1,5 +1,12 @@
+import type {ReactNode} from 'react';
+import clsx from 'clsx';
+import Link from '@docusaurus/Link';
+// import useDocusaurusContext from '@docusaurus/useDocusaurusContext'; // Temporarily removed for debugging
+// import Layout from '@theme/Layout'; // Temporarily removed for debugging
+import Heading from '@theme/Heading';
+// import ModuleCard from '@site/src/components/ModuleCard'; // ModuleCard is removed
 import FloatingChatbotButton from '@site/src/components/FloatingChatbotButton'; // Import FloatingChatbotButton
-import { Button, Group, Text, List, Card } from '@mantine/core'; // Import Mantine Components
+import { Button, Group, Text, Grid, List, Card } from '@mantine/core'; // Import Mantine Components
 
 import styles from './index.module.css';
 
@@ -23,9 +30,9 @@ export default function Home(): ReactNode {
   // const {siteConfig} = useDocusaurusContext(); // Temporarily removed for debugging
   const siteConfig = { title: "My Site", tagline: "My Tagline" }; // Hardcoded placeholder for now
   return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+    // <Layout // Temporarily removed for debugging
+    //   title={`Hello from ${siteConfig.title}`}
+    //   description="Description will go into a meta tag in <head />">
       <main>
         <HeroSection />
 
@@ -46,7 +53,7 @@ export default function Home(): ReactNode {
                 <Text c="dimmed" mt="xs">Leverage advanced AI for robotic perception and control.</Text>
               </Card>
               <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
-                <Text color="neonCyan" fw={700} fz="700" fz="lg">Vision-Language-Action</Text>
+                <Text color="neonCyan" fw={700} fz="lg">Vision-Language-Action</Text>
                 <Text c="dimmed" mt="xs">Integrate multimodal AI for intelligent robot behavior.</Text>
               </Card>
               <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
