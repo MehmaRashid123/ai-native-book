@@ -6,19 +6,22 @@
   text-align: center;
   transition: all 0.3s ease;
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.03); /* Slightly less transparent */
+  border: 1px solid rgba(0, 188, 212, 0.1); /* Subtle neon border */
 }
 
 .agentCard:hover {
-  box-shadow: 0 0 15px var(--violet), 0 0 30px var(--violet);
+  box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--violet); /* Dual glow effect */
   transform: translateY(-5px);
 }
 
 .agentCard h3 {
-  color: var(--neon-cyan);
+  color: var(--neon-cyan); /* Neon cyan for titles */
   font-weight: bold;
   margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px var(--neon-cyan);
 }
 
 .agentCard p {
-  color: #a0a0a0; /* Grey text for roles */
+  color: #eee; /* Lighter white for roles */
 }
