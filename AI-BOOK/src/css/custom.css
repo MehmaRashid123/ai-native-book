@@ -44,6 +44,8 @@
 }
 
 .navbar {
+  background-color: transparent; /* Pehle var(--space-black) tha, usay hatayen */
+  border-bottom: 1px solid rgba(28, 56, 56, 0.1); /* Optional: Separation ke liye halka 
   background-color: var(--space-black);
   color: #eee;
   /* Ensure proper spacing and visibility for items */
@@ -73,17 +75,25 @@
 body {
   font-family: var(--font-family-base);
   background-color: var(--space-black);
+  
+  /* Grid Pattern */
   background-image:
     linear-gradient(0deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 40px 40px; /* Larger grid size */
-  background-position: center center;
+  
   box-shadow: inset 0 0 50px rgba(0, 188, 212, 0.1); /* Subtle global neon cyan glow */
+
+  /* --- NEW CHANGES HERE --- */
+  min-height: fit-content; /* Ye ensure karega k background kam az kam poori screen height le */
+  width: 100%;       /* Full width */
+  margin: 0;         /* Default margins remove karega */
+  background-attachment: fixed; /* Ye background ko scroll hone se rokega (Sci-fi feel k liye behtar hai) */
 }
 
 .glassmorphism-panel {
-  background-color: rgba(255, 255, 255, 0.05); /* Slightly transparent white */
-  backdrop-filter: blur(10px); /* Glassmorphism blur effect */
+  background-color: rgba(255, 255, 255, 0.02); /* More transparent white */
+  backdrop-filter: blur(5px); /* Reduced blur effect */
   border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
   border-radius: 8px; /* Rounded corners for panels */
 }

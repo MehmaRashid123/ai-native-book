@@ -25,6 +25,15 @@
   margin-top: 1rem;
 }
 
+.heroImage {
+  max-width: 400px; /* Adjust as needed */
+  width: 100%;
+  height: auto;
+  margin-top: 2rem;
+  border-radius: 8px; /* Subtle rounded corners */
+  box-shadow: 0 0 30px rgba(0, 188, 212, 0.4); /* Neon glow around image */
+}
+
 .buttons {
   display: flex;
   align-items: center;
@@ -43,17 +52,6 @@
   margin-top: 2rem;
 }
 
-.skillsSection {
-  padding-top: 4rem;
-  color: #eee;
-}
-
-.skillsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
 .startLearningSection {
   padding: 4rem 0;
 }

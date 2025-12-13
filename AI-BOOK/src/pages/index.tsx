@@ -17,6 +17,7 @@ function HeroSection() {
           PHYSICAL AI
         </Heading>
         <p className="hero__subtitle">Embodied Intelligence in the Physical World</p>
+        <img src="/img/hero-robot.webp" alt="Neon Robot Profile" className={styles.heroImage} />
       </div>
     </header>
   );
