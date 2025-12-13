@@ -6,7 +6,7 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import ModuleCard from '@site/src/components/ModuleCard';
 import FloatingChatbotButton from '@site/src/components/FloatingChatbotButton'; // Import FloatingChatbotButton
-import { Button, Text, ActionIcon, Card, Progress, Group } from '@mantine/core'; // Import Mantine Components
+import { Button } from '@mantine/core'; // Import Mantine Button
 
 import styles from './index.module.css';
 
@@ -53,38 +53,40 @@ export default function Home(): ReactNode {
           </div>
         </section>
 
-        <section className={clsx('margin-top--lg', styles.mantineComponentsSection)}>
+        <section className={clsx('margin-top--lg', styles.keyResearchAreasSection)}>
           <div className="container">
-            <Heading as="h2" className="text--center">Explore Mantine Components</Heading>
-            <div className={styles.mantineComponentsGrid}>
-              <Card shadow="sm" padding="lg" radius="md" withBorder>
-                <Group justify="space-between" mt="md" mb="xs">
-                  <Text fw={500} color="neonCyan">Data Stream</Text>
-                  <ActionIcon variant="filled" color="sciFiViolet" size="lg">
-                    {/* Placeholder for an icon */}
-                    <span style={{fontSize: '1.5rem'}}>⚡</span>
-                  </ActionIcon>
-                </Group>
-                <Text size="sm" c="dimmed">
-                  Monitoring real-time data flow from interconnected neural networks.
-                </Text>
-                <Progress value={75} color="neonCyan" size="xl" radius="xl" mt="md" />
-              </Card>
+            <Heading as="h2" className="text--center">Key Research Areas</Heading>
+            <Accordion variant="filled" defaultValue="customization" radius="md">
+              <Accordion.Item value="embodied-intelligence">
+                <Accordion.Control>Embodied Intelligence</Accordion.Control>
+                <Accordion.Panel>
+                  <Text c="dimmed">
+                    Exploring how physical bodies and environments influence intelligence and learning in robotic systems.
+                    This involves understanding the interplay between perception, action, and physical interaction.
+                  </Text>
+                </Accordion.Panel>
+              </Accordion.Item>
 
-              <Card shadow="sm" padding="lg" radius="md" withBorder>
-                <Group justify="space-between" mt="md" mb="xs">
-                  <Text fw={500} color="sciFiViolet">System Status</Text>
-                  <ActionIcon variant="filled" color="neonCyan" size="lg">
-                    {/* Placeholder for an icon */}
-                    <span style={{fontSize: '1.5rem'}}>⚙️</span>
-                  </ActionIcon>
-                </Group>
-                <Text size="sm" c="dimmed">
-                  Core AI processes are stable and operating within optimal parameters.
-                </Text>
-                <Progress value={90} color="sciFiViolet" size="xl" radius="xl" mt="md" />
-              </Card>
-            </div>
+              <Accordion.Item value="humanoid-robotics">
+                <Accordion.Control>Humanoid Robotics</Accordion.Control>
+                <Accordion.Panel>
+                  <Text c="dimmed">
+                    Delving into the design, control, and autonomy of human-like robots, focusing on biomimicry,
+                    dexterous manipulation, and natural human-robot interaction.
+                  </Text>
+                </Accordion.Panel>
+              </Accordion.Item>
+
+              <Accordion.Item value="bci-integration">
+                <Accordion.Control>Brain-Computer Interface Integration</Accordion.Control>
+                <Accordion.Panel>
+                  <Text c="dimmed">
+                    Investigating the fusion of biological and artificial intelligence, including direct neural control
+                    of robotic prosthetics and advanced human-robot collaboration.
+                  </Text>
+                </Accordion.Panel>
+              </Accordion.Item>
+            </Accordion>
           </div>
         </section>
       </main>
