@@ -20,11 +20,6 @@ export default function Navbar() {
         <Link className="navbar__item navbar__link" to="/reference">Reference</Link>
       </div>
       <NavbarContent />
-      <div className="navbar__items navbar__items--right">
-        <Link className="navbar__item button button--secondary" to="/login">Login</Link>
-        <Link className="navbar__item button button--primary" to="/signup">Signup</Link>
-      </div>
-      <div className="navbar__item navbar__link navbar__link--right">اردو</div>
     </NavbarLayout>
   );
 }

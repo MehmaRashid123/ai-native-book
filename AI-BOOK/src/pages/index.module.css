@@ -10,6 +10,7 @@
   overflow: hidden;
   background-color: var(--space-black); /* Use the global space-black variable */
   color: #eee; /* Light text for dark background */
+  min-height: 100vh; /* Make hero banner take full viewport height */
 
   /* Futuristic background grid */
   background-image:
