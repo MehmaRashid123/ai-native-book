@@ -1,0 +1,24 @@
+/* styles.module.css for ModuleCard */
+
+.moduleCard {
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.moduleCard h3 {
+  color: #fff; /* White text for titles */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.moduleCard p {
+  color: #a0a0a0; /* Grey text for descriptions */
+}
+
+.moduleCard:hover {
+  box-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--neon-cyan);
+  transform: translateY(-5px);
+}

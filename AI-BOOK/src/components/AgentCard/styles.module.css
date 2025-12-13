@@ -1,0 +1,24 @@
+/* styles.module.css for AgentCard */
+
+.agentCard {
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.agentCard:hover {
+  box-shadow: 0 0 15px var(--violet), 0 0 30px var(--violet);
+  transform: translateY(-5px);
+}
+
+.agentCard h3 {
+  color: var(--neon-cyan);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.agentCard p {
+  color: #a0a0a0; /* Grey text for roles */
+}

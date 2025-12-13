@@ -1,0 +1,19 @@
+/* styles.module.css for SkillCard */
+
+.skillCard {
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.skillCard:hover {
+  box-shadow: 0 0 15px var(--violet), 0 0 30px var(--violet);
+  transform: translateY(-5px);
+}
+
+.skillCard h3 {
+  color: #fff; /* White text for titles */
+  font-weight: bold;
+}

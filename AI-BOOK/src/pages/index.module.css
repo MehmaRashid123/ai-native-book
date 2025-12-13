@@ -1,0 +1,78 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 8rem 0; /* Increase padding for more space */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--space-black); /* Use the global space-black variable */
+  color: #eee; /* Light text for dark background */
+
+  /* Futuristic background grid */
+  background-image:
+    linear-gradient(0deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px; /* Larger grid size */
+  background-position: center center;
+
+  /* Subtle glow effect */
+  box-shadow: 0 0 50px rgba(0, 188, 212, 0.2); /* Neon cyan glow */
+}
+
+.hero__title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  color: #a0a0a0;
+  margin-top: 1rem;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modulesSection {
+  padding: 4rem 0;
+  color: #eee;
+}
+
+.modulesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.skillsSection {
+  padding-top: 4rem;
+  color: #eee;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.agentsSection {
+  padding-top: 4rem;
+  color: #eee;
+}
+
+.agentsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}

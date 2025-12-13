@@ -1,0 +1,42 @@
+/* Custom styles for the DocItem component */
+
+.docItemWrapper {
+  color: #e0e0e0; /* Light grey for better readability on dark background */
+  font-family: var(--font-family-base);
+  line-height: 1.7;
+}
+
+.docItemWrapper p {
+  margin-bottom: 1rem;
+}
+
+.docItemWrapper h1,
+.docItemWrapper h2,
+.docItemWrapper h3,
+.docItemWrapper h4,
+.docItemWrapper h5,
+.docItemWrapper h6 {
+  color: var(--neon-cyan);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.docItemWrapper a {
+  color: var(--violet);
+  text-decoration: none;
+}
+
+.docItemWrapper a:hover {
+  text-decoration: underline;
+}
+
+.docItemWrapper ul,
+.docItemWrapper ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.docItemWrapper li {
+  margin-bottom: 0.5rem;
+}
