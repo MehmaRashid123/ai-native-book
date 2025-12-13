@@ -10,6 +10,12 @@
   overflow: hidden;
   background-color: var(--space-black); /* Use the global space-black variable */
   color: #eee; /* Light text for dark background */
+  background-image: url(/img/hero-robot.webp), 
+                    linear-gradient(0deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: cover, 40px 40px, 40px 40px; /* Cover for image, then grid */
+  background-position: center center;
+  background-repeat: no-repeat, repeat, repeat;
 }
 
 .hero__title {
@@ -17,21 +23,6 @@
   font-weight: bold;
   color: var(--neon-cyan);
   text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
-}
-
-.hero__subtitle {
-  font-size: 1.5rem;
-  color: #a0a0a0;
-  margin-top: 1rem;
-}
-
-.heroImage {
-  max-width: 400px; /* Adjust as needed */
-  width: 100%;
-  height: auto;
-  margin-top: 2rem;
-  border-radius: 8px; /* Subtle rounded corners */
-  box-shadow: 0 0 30px rgba(0, 188, 212, 0.4); /* Neon glow around image */
 }
 
 .buttons {
