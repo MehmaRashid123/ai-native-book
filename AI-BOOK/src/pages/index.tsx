@@ -6,7 +6,7 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 // import ModuleCard from '@site/src/components/ModuleCard'; // ModuleCard is removed
 import FloatingChatbotButton from '@site/src/components/FloatingChatbotButton'; // Import FloatingChatbotButton
-import { Button, Group, Text, Grid, List } from '@mantine/core'; // Import Mantine Components
+import { Button, Group, Text, Grid, List, Card } from '@mantine/core'; // Import Mantine Components
 
 import styles from './index.module.css';
 
