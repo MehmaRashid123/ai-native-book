@@ -5,8 +5,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import ModuleCard from '@site/src/components/ModuleCard';
-import SkillCard from '@site/src/components/SkillCard';
-import AgentCard from '@site/src/components/AgentCard';
 import FloatingChatbotButton from '@site/src/components/FloatingChatbotButton'; // Import FloatingChatbotButton
 
 import styles from './index.module.css';
@@ -46,26 +44,11 @@ export default function Home(): ReactNode {
           </div>
         </section>
 
-        <section className={styles.skillsSection}>
+        <section className={clsx('margin-top--lg', 'text--center', styles.startLearningSection)}>
           <div className="container">
-            <Heading as="h2" className="text--center">AI-Native Skills</Heading>
-            <div className={styles.skillsGrid}>
-              <SkillCard title="Robotics Systems Thinking" />
-              <SkillCard title="Physical AI Design" />
-              <SkillCard title="Simulation & Digital Twins" />
-              <SkillCard title="Vision-Language-Action Reasoning" />
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.agentsSection}>
-          <div className="container">
-            <Heading as="h2" className="text--center">Intelligent Agents</Heading>
-            <div className={styles.agentsGrid}>
-              <AgentCard name="Textbook Architect" role="Designing the knowledge structure" />
-              <AgentCard name="Physical AI Professor" role="Guiding students through complex concepts" />
-              <AgentCard name="Futuristic UI Designer" role="Crafting immersive user experiences" />
-            </div>
+            <Link className="button button--primary button--lg" to="/docs/intro">
+              Start Learning
+            </Link>
           </div>
         </section>
       </main>

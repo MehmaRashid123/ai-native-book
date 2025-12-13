@@ -17,23 +17,12 @@
   font-weight: bold;
   color: var(--neon-cyan);
   text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
-  animation: pulseGlow 2s infinite alternate;
 }
 
 .hero__subtitle {
   font-size: 1.5rem;
   color: #a0a0a0;
   margin-top: 1rem;
-  animation: pulseGlow 2s infinite alternate 0.5s; /* Slightly delayed animation */
-}
-
-@keyframes pulseGlow {
-  from {
-    text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
-  }
-  to {
-    text-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--neon-cyan);
-  }
 }
 
 .buttons {
@@ -65,15 +54,6 @@
   gap: 1.5rem;
   margin-top: 2rem;
 }
-
-.agentsSection {
-  padding-top: 4rem;
-  color: #eee;
-}
-
-.agentsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+.startLearningSection {
+  padding: 4rem 0;
 }
