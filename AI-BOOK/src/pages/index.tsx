@@ -1,78 +1,44 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-// import useDocusaurusContext from '@docusaurus/useDocusaurusContext'; // Temporarily removed for debugging
-// import Layout from '@theme/Layout'; // Temporarily removed for debugging
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
+// import HomepageFeatures from '@site/src/components/HomepageFeatures'; // We removed this
 import Heading from '@theme/Heading';
-// import ModuleCard from '@site/src/components/ModuleCard'; // ModuleCard is removed
-import FloatingChatbotButton from '@site/src/components/FloatingChatbotButton'; // Import FloatingChatbotButton
-import { Button, Group, Text, Grid, List, Card } from '@mantine/core'; // Import Mantine Components
+
+import { Button } from '@mantine/core'; // Import Mantine Button
 
 import styles from './index.module.css';
 
-function HeroSection() {
+function HomepageHeader() {
+  const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero', styles.heroBanner)}>
+    <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className={styles.heroTitle}>
-          PHYSICAL AI
+        <Heading as="h1" className="hero__title">
+          {siteConfig.title}
         </Heading>
-        <p className={styles.heroSubtitle}>Embodied Intelligence in the Physical World</p>
-        <Button variant="filled" color="neonCyan" size="xl" onClick={() => (window.location.href = '/docs/intro')} className={styles.heroButton} mt="xl">
-          Start Learning (Mantine)
-        </Button>
+        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <div className={styles.buttons}>
+          <Button variant="filled" color="neonCyan" size="xl" onClick={() => (window.location.href = '/docs/intro')}>
+            Start Learning (Mantine)
+          </Button>
+        </div>
       </div>
     </header>
   );
 }
 
 export default function Home(): ReactNode {
-  // const {siteConfig} = useDocusaurusContext(); // Temporarily removed for debugging
-  const siteConfig = { title: "My Site", tagline: "My Tagline" }; // Hardcoded placeholder for now
+  const {siteConfig} = useDocusaurusContext();
   return (
-    <div> {/* Use a div as a single root element to bypass React.Fragment syntax issue */}
+    <Layout
+      title={`Hello from ${siteConfig.title}`}
+      description="Description will go into a meta tag in <head />">
+      <HomepageHeader />
       <main>
-        <HeroSection />
-
-        <section className={styles.modulesSection}>
-          <div className="container">
-            <Heading as="h2" className="text--center">Modules</Heading>
-            <div className={styles.modulesGrid}>
-              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
-                <Text color="neonCyan" fw={700} fz="lg">ROS 2 Nervous System</Text>
-                <Text c="dimmed" mt="xs">Develop robust robot control architectures.</Text>
-              </Card>
-              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
-                <Text color="neonCyan" fw={700} fz="lg">Digital Twin Simulation</Text>
-                <Text c="dimmed" mt="xs">Create and interact with virtual robot environments.</Text>
-              </Card>
-              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
-                <Text color="neonCyan" fw={700} fz="lg">NVIDIA Isaac AI</Text>
-                <Text c="dimmed" mt="xs">Leverage advanced AI for robotic perception and control.</Text>
-              </Card>
-              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
-                <Text color="neonCyan" fw={700} fz="700" fz="lg">Vision-Language-Action</Text>
-                <Text c="dimmed" mt="xs">Integrate multimodal AI for intelligent robot behavior.</Text>
-              </Card>
-              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
-                <Text color="neonCyan" fw={700} fz="lg">Capstone Project</Text>
-                <Text c="dimmed" mt="xs">Apply all learned skills to a real-world robotics challenge.</Text>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        <section className={clsx('margin-top--lg', 'text--center', styles.startLearningSection)}>
-          <div className="container">
-            <Button variant="filled" color="neonCyan" size="xl" onClick={() => (window.location.href = '/docs/intro')}>
-              Start Learning (Mantine)
-            </Button>
-          </div>
-        </section>
-
-
+        {/* We can add other sections here later */}
       </main>
-      <FloatingChatbotButton />
-    </div> {/* Close div */}
+    </Layout>
   );
 }
