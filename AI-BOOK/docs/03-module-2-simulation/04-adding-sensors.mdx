@@ -1,0 +1,89 @@
+---
+sidebar_label: 'Adding Simulated Sensors'
+# This chapter is part of Module 2: The Digital Twin (Simulation)
+---
+
+{/* Chapter Start */}
+
+## Adding Eyes: Integrating Sensors into Your Robot
+
+For a robot to perceive and interact with its environment, it needs sensors. In a digital twin, these sensors are also simulated, providing realistic data streams without the need for physical hardware. This guide will walk you through adding common robotic sensors like LiDAR and cameras to your URDF model for use in Gazebo.
+
+### Explaining the `<gazebo>` Tag in URDF
+
+To add simulated sensors and other Gazebo-specific properties to your robot, you extend your URDF with a `<gazebo>` tag. This tag is generally used to define elements that are specific to the Gazebo simulation environment and not part of the core kinematic or dynamic description of the robot (which is handled by `<link>` and `<joint>` tags).
+
+The `<gazebo>` tag often references a `<link>` in your URDF, specifying that the properties defined within it apply to that particular link.
+
+### Code Snippet: Adding a LiDAR (Laser Scan) Sensor
+
+Let's add a simulated **LiDAR (Laser Scan)** sensor to our `simple_leg` robot, specifically attached to its `base_link`. This sensor will simulate emitting laser beams and detecting distances to obstacles, similar to how a real LiDAR works.
+
+You would typically place this `<gazebo>` block within your main `<robot>` tag, referencing the link you want to attach it to.
+
+```xml
+    <gazebo reference="base_link"> <!-- This references the 'base_link' defined in your URDF -->
+      <sensor name="laser_sensor" type="ray">
+        <always_on>true</always_on>
+        <update_rate>10.0</update_rate>
+        <pose>0 0 0.1 0 0 0</pose> <!-- Position relative to the base_link: 10cm above -->
+        <visualize>true</visualize> <!-- Visualize the laser beams in Gazebo -->
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>720</samples>      <!-- Number of laser beams in horizontal scan -->
+              <resolution>1</resolution>   <!-- Resolution of the scan -->
+              <min_angle>-1.570796</min_angle> <!-- -90 degrees -->
+              <max_angle>1.570796</max_angle>  <!-- +90 degrees -->
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.1</min>
+            <max>10.0</max>
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+        <plugin name="gazebo_ros_ray_sensor_controller" filename="libgazebo_ros_ray_sensor.so">
+          <ros>
+            <argument>~/out</argument>
+            <remapping>~/out:=scan</remapping> <!-- Remap the output topic to /scan -->
+          </ros>
+          <output_type>sensor_msgs/LaserScan</output_type>
+          <frame_name>laser_frame</frame_name> <!-- The TF frame for the sensor data -->
+        </plugin>
+      </sensor>
+    </gazebo>
+```
+Remember to add this `<gazebo>` block inside your `<robot>` tags but outside any `<link>` or `<joint>` tags, and replace `"base_link"` with the name of the link you want the sensor attached to. You might need to adjust the `pose` for accurate placement.
+
+### Visualization in Rviz2
+
+Once your robot with the simulated LiDAR is spawned in Gazebo, you can visualize the laser scan data in Rviz2, the ROS 2 visualization tool.
+
+1.  **Start Gazebo and your robot:**
+    ```bash
+    # In one terminal, launch Gazebo
+    gazebo
+
+    # In another terminal, launch your robot with the updated URDF (after colcon build and sourcing)
+    ros2 launch py_pubsub spawn_robot.launch.py
+    ```
+
+2.  **Launch Rviz2:**
+    ```bash
+    rviz2
+    ```
+
+3.  **Add a LaserScan Display:**
+    In Rviz2, on the left panel under "Displays", click "Add". Search for "LaserScan" and add it.
+    -   Set the "Topic" to `/scan` (or whatever you remapped it to).
+    -   Set the "Reliability Policy" to `Best Effort`.
+    -   Set the "Frame Id" to `laser_frame` (the `frame_name` from your plugin).
+
+You should now see lines representing the laser beams and their hits in Rviz2, visualizing the simulated LiDAR data. Similarly, for a camera, you would add an "Image" display and subscribe to the camera's image topic (e.g., `/camera/image_raw`).
+
+{/* Chapter End */}
+
+:::tip
+**Practice:** Try running this code in your terminal to verify it works.
+:::

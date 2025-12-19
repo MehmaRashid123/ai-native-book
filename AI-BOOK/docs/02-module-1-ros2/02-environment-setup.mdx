@@ -1,0 +1,84 @@
+---
+sidebar_label: 'ROS 2 Environment Setup'
+# This chapter is part of Module 1: ROS 2 Nervous System
+---
+
+{/* Chapter Start */}
+
+## Environment Setup: Installing ROS 2 Humble
+
+This guide will walk you through installing ROS 2 Humble on Ubuntu 22.04. This is a critical step to prepare your machine for robotics development.
+
+### 1. Locale Setup
+
+First, ensure your system supports UTF-8. This is a common requirement for ROS 2.
+
+```bash
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+```
+
+### 2. Add ROS 2 Repositories
+
+Next, we'll add the official ROS 2 package repositories to your system. This allows `apt` to find and install ROS 2 packages.
+
+```bash
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+
+sudo apt update && sudo apt install curl
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+```
+
+### 3. Installation
+
+Now, we can install ROS 2 Humble. We will install the `ros-humble-desktop` package, which includes ROS, RViz, demos, and tutorials.
+
+```bash
+sudo apt update
+sudo apt install ros-humble-desktop
+```
+
+### 4. Environment Setup
+
+After installation, you need to "source" the ROS 2 setup file in your shell. This script adds ROS 2 commands to your environment.
+
+:::danger
+You must run this command in every new terminal you open! If you forget this step, ROS 2 commands like `ros2 run` will not work.
+:::
+
+```bash
+# Source the setup file
+source /opt/ros/humble/setup.bash
+```
+
+To make this permanent, you can add this command to your shell's startup script (e.g., `~/.bashrc`).
+```bash
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+```
+
+### 5. Verification
+
+Let's verify that our installation is working. We'll run a simple talker/listener demo.
+
+Open two terminals. In the first terminal, run the "talker" node:
+```bash
+ros2 run demo_nodes_cpp talker
+```
+You should see output indicating that it is publishing messages.
+
+In the second terminal, run the "listener" node:
+```bash
+ros2 run demo_nodes_cpp listener
+```
+You should see the messages being received from the talker. Congratulations, you have a working ROS 2 installation!
+
+{/* Chapter End */}
+
+:::tip
+**Practice:** Try running this code in your terminal to verify it works.
+:::

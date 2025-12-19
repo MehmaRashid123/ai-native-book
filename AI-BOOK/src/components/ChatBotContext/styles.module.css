@@ -1,0 +1,7 @@
+.chatBotContext {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(0, 188, 212, 0.1); /* Subtle neon cyan background */
+  border: 1px solid var(--neon-cyan);
+}

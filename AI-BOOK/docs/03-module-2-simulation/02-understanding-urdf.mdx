@@ -1,0 +1,134 @@
+---
+sidebar_label: 'Understanding URDF & SDF'
+# This chapter is part of Module 2: The Digital Twin (Simulation)
+---
+
+{/* Chapter Start */}
+
+## Understanding URDF & SDF
+
+In the realm of robotics, before we can make a robot move or interact with its environment, we need to accurately describe its physical characteristics. How many joints does it have? How long are its links? What are its sensors? This is where robot description formats come into play, primarily URDF and SDF.
+
+### URDF: Unified Robot Description Format
+
+**URDF (Unified Robot Description Format)** is an XML-based file format used in ROS to describe a robot's kinematic and dynamic properties. It's designed to be a generic way to describe a robot, making it compatible with various tools within the ROS ecosystem.
+
+Think of URDF as defining the robot's **body (Links)** and its **muscles (Joints)**:
+
+-   **Links**: These define the rigid parts of the robot (e.g., torso, upper arm, forearm, wheel). Each link has physical properties like mass, inertia, visual appearance, and collision geometry.
+-   **Joints**: These define how links are connected and how they can move relative to each other. Joints have properties like type (revolute, prismatic, fixed), axis of rotation, and limits.
+
+#### Simple URDF for a Robotic Leg
+
+Here's a simplified URDF snippet for a robotic leg to illustrate the concepts of links and joints:
+
+```xml
+<?xml version="1.0"?>
+<robot name="simple_leg">
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <!-- Hip Joint -->
+  <joint name="hip_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="thigh_link"/>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.57" upper="1.57" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Thigh Link -->
+  <link name="thigh_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.2" radius="0.02"/>
+      </geometry>
+      <material name="red">
+        <color rgba="0.8 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.2" radius="0.02"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.2"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+    </inertial>
+  </link>
+
+  <!-- Knee Joint -->
+  <joint name="knee_joint" type="revolute">
+    <parent link="thigh_link"/>
+    <child link="calf_link"/>
+    <origin xyz="0 0 -0.1" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.57" upper="1.57" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Calf Link -->
+  <link name="calf_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.2" radius="0.02"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0 0.8 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.2" radius="0.02"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.2"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+    </inertial>
+  </link>
+
+</robot>
+```
+
+### SDF: Simulation Description Format
+
+While URDF is excellent for describing the robot itself, **SDF (Simulation Description Format)** is a more comprehensive XML format primarily used by Gazebo. SDF can describe:
+
+-   **Robots:** Similar to URDF, but with more advanced features for simulation.
+-   **Environments:** Static objects, terrain, lighting, and other world elements.
+-   **Sensors:** Detailed properties of cameras, LiDARs, IMUs, etc.
+-   **Plugins:** Dynamic libraries that extend Gazebo's functionality.
+
+**Difference between URDF and SDF:**
+
+-   **Scope:** URDF is for describing *robots only*, while SDF is for describing *robots, environments, and even entire worlds*.
+-   **Physics:** SDF includes more detailed physics properties like friction, restitution, and more complex joint types, making it better suited for high-fidelity simulations in Gazebo.
+-   **Modularity:** URDF is designed to describe a single robot, which can then be inserted into a world. SDF can describe the entire world, including multiple robots.
+
+In a Gazebo simulation, you will often start with a URDF file for your robot, which Gazebo can convert internally to SDF, or you might directly use an SDF file for more advanced world setups.
+
+{/* Chapter End */}
+
+:::tip
+**Practice:** Try running this code in your terminal to verify it works.
+:::

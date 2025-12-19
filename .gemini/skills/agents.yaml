@@ -1,0 +1,32 @@
+agents:
+  - name: "Robotics_Professor"
+    role: "Subject Matter Expert"
+    model: "gemini-1.5-pro"  # Using Gemini as requested
+    description: "An expert in Embodied Intelligence, ROS 2, and NVIDIA Isaac."
+    skills:
+      - "Draft_Technical_Concept"
+      - "Create_Isaac_Sim_Tutorial"
+
+  - name: "Lab_Instructor"
+    role: "Technical Implementation Lead"
+    model: "gemini-1.5-flash" # Faster model for code generation
+    description: "Responsible for the hands-on labs and code correctness."
+    skills:
+      - "Generate_ROS2_Code"
+      - "Draft_Technical_Concept" (For hardware specs)
+
+  - name: "Publisher"
+    role: "Content Formatter"
+    model: "gemini-1.5-flash"
+    description: "Assembles the final MDX files for the book website."
+    skills:
+      - "Format_For_Docusaurus"
+
+  - name: "content_writer"
+    role: "Technical Author"
+    model: "gemini-1.5-pro"
+    # The system_prompt key loads your constitution
+    system_prompt_file: "sp.constitution" 
+    skills:
+      - "write_chapter"
+      - "generate_code_tutorial"

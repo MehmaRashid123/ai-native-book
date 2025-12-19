@@ -1,23 +1,11 @@
-/* Custom styles for the Navbar component */
-
+/* Base styles for all screen sizes */
 .navbarSection {
   display: flex;
   align-items: center;
 }
 
 .navbarSectionLeft {
-  margin-right: auto; /* Push center and right sections to the right */
-  gap: 0.5rem;
-}
-
-.navbarSectionCenter {
-  flex-grow: 1; /* Allows center section to take available space */
-  justify-content: center;
-  gap: 2rem;
-}
-
-.navbarSectionRight {
-  margin-left: auto; /* Push right section to the far right */
+  margin-right: auto;
   gap: 0.5rem;
 }
 
@@ -26,8 +14,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   text-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan);
-  margin-left: 1rem; /* Adjust as needed */
-  white-space: nowrap;
+  margin-left: 1rem;
 }
 
 .navbarLink {
@@ -38,13 +25,12 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  white-space: nowrap;
 }
 
 .navbarLink:hover {
   color: var(--neon-cyan);
   text-shadow: 0 0 5px var(--neon-cyan);
-  background-color: rgba(0, 188, 212, 0.1); /* Subtle background on hover */
+  background-color: rgba(0, 188, 212, 0.1);
   border-radius: 4px;
 }
 
@@ -60,7 +46,6 @@
   padding: 0.5rem 1rem;
   margin-left: 0.5rem;
   transition: all 0.3s ease;
-  white-space: nowrap;
 }
 
 .buttonSecondary {
@@ -85,6 +70,34 @@
   background-color: transparent;
   color: var(--neon-cyan);
   box-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan);
+}
+
+/* Initially hide the center and right sections for mobile-first */
+.navbarSectionCenter,
+.navbarSectionRight {
+  display: none;
+}
+
+/* Desktop-specific styles */
+@media (min-width: 997px) {
+  .navbarSectionCenter {
+    display: flex; /* Show on desktop */
+    flex-grow: 1;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .navbarSectionRight {
+    display: flex; /* Show on desktop */
+    margin-left: auto;
+    gap: 0.5rem;
+  }
+  
+  .navbarTitle,
+  .navbarLink,
+  .button {
+    white-space: nowrap; /* Prevent wrapping only on desktop */
+  }
 }
 
 .colorModeToggle {

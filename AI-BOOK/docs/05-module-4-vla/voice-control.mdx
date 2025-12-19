@@ -1,0 +1,200 @@
+---
+sidebar_label: 'Voice Control with Whisper'
+# This chapter is part of Module 4: Vision-Language-Action (VLA)
+---
+
+{/* Chapter Start */}
+
+## Voice Control with OpenAI Whisper
+
+Integrating voice commands into your robot allows for a more natural and intuitive human-robot interaction. Imagine telling your robot to "fetch the wrench" or "turn on the lights." This chapter guides you through setting up voice control using OpenAI's powerful Whisper API and integrating it with ROS 2.
+
+### OpenAI Whisper API: Speech-to-Text
+
+OpenAI Whisper is a general-purpose speech-to-text model that can transcribe audio into text with high accuracy, even in noisy environments or with different languages. We'll use its API to convert spoken commands into text that our ROS 2 system can process.
+
+#### Prerequisites:
+
+1.  **OpenAI API Key:** You'll need an OpenAI API key. Get one from the [OpenAI platform website](https://platform.openai.com/account/api-keys).
+2.  **Python Libraries:**
+    ```bash
+    pip install openai pydub sounddevice numpy
+    ```
+    -   `openai`: For interacting with the Whisper API.
+    -   `pydub`: For audio manipulation.
+    -   `sounddevice`: For recording audio from your microphone.
+    -   `numpy`: Used by `sounddevice`.
+
+### Tutorial: Integrating Whisper API
+
+Let's create a Python script that captures audio, sends it to the Whisper API, and then publishes the transcribed text to a ROS 2 topic.
+
+#### 1. The ROS 2 Voice Command Publisher Node
+
+Create a new Python file in your `py_pubsub` package (or a new package) called `voice_command_publisher.py`.
+
+```python
+# voice_command_publisher.py
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+
+import openai
+import sounddevice as sd
+from scipy.io.wavfile import write as write_wav
+import numpy as np
+import threading
+import time
+
+# Replace with your actual OpenAI API Key
+openai.api_key = "YOUR_OPENAI_API_KEY"
+
+class VoiceCommandPublisher(Node):
+    def __init__(self):
+        super().__init__('voice_command_publisher')
+        self.publisher_ = self.create_publisher(String, '/voice_command', 10)
+        self.get_logger().info("Voice Command Publisher Node Started. Waiting for commands...")
+
+        self.recording = False
+        self.samplerate = 16000  # Whisper API recommended sample rate
+        self.channels = 1
+        self.duration_threshold = 0.5 # Minimum duration to record
+        self.silence_threshold = 0.01 # Adjust based on your microphone and environment noise
+
+        # Start a thread to listen for voice commands
+        self.voice_thread = threading.Thread(target=self.listen_for_commands)
+        self.voice_thread.daemon = True
+        self.voice_thread.start()
+
+    def listen_for_commands(self):
+        while rclpy.ok():
+            self.get_logger().info("Say something...")
+            audio_buffer = []
+            current_duration = 0
+            silent_frames = 0
+            
+            # Start recording
+            with sd.InputStream(samplerate=self.samplerate, channels=self.channels, dtype='float32') as stream:
+                while rclpy.ok():
+                    audio_chunk, overflowed = stream.read(self.samplerate // 10) # Read 0.1 seconds of audio
+                    if overflowed:
+                        self.get_logger().warn("Audio buffer overflowed!")
+
+                    # Calculate RMS energy to detect speech vs. silence
+                    rms = np.sqrt(np.mean(np.square(audio_chunk)))
+
+                    if rms > self.silence_threshold:
+                        self.recording = True
+                        audio_buffer.append(audio_chunk)
+                        current_duration += len(audio_chunk) / self.samplerate
+                        silent_frames = 0 # Reset silent frames
+                    elif self.recording:
+                        # We are recording and detected silence
+                        silent_frames += 1
+                        audio_buffer.append(audio_chunk) # Keep recording a bit of silence
+                        if silent_frames * (len(audio_chunk) / self.samplerate) > 1.0: # 1 second of silence
+                            self.recording = False
+                            break # End recording
+                    
+                    if not self.recording and current_duration > 0:
+                        break # Finished recording silence after a phrase
+
+            if current_duration > self.duration_threshold:
+                self.get_logger().info("Processing audio...")
+                combined_audio = np.concatenate(audio_buffer, axis=0)
+                wav_file_path = "voice_command.wav"
+                write_wav(wav_file_path, self.samplerate, combined_audio)
+
+                try:
+                    with open(wav_file_path, "rb") as audio_file:
+                        transcript = openai.Audio.transcribe("whisper-1", audio_file)
+                        command_text = transcript.text
+                        self.get_logger().info(f"Transcribed: '{command_text}'")
+
+                        if command_text:
+                            msg = String()
+                            msg.data = command_text
+                            self.publisher_.publish(msg)
+                            self.get_logger().info(f"Published to /voice_command: '{command_text}'")
+                        else:
+                            self.get_logger().info("No command transcribed.")
+
+                except openai.error.AuthenticationError:
+                    self.get_logger().error("OpenAI API Key is invalid or missing.")
+                except Exception as e:
+                    self.get_logger().error(f"Error during transcription: {e}")
+            else:
+                self.get_logger().info("Audio too short or no speech detected.")
+            
+            current_duration = 0 # Reset for next recording cycle
+            time.sleep(0.5) # Small delay before next listen cycle
+
+    def destroy_node(self):
+        self.get_logger().info("Shutting down Voice Command Publisher.")
+        # self.voice_thread.join() # If you want to wait for the thread to finish
+        super().destroy_node()
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = VoiceCommandPublisher()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+#### 2. Configure `setup.py`
+
+Add an entry point for your new node in your `py_pubsub/setup.py` file, similar to how you did for the publisher and subscriber:
+
+```python
+# setup.py
+# ... (existing content)
+entry_points={
+    'console_scripts': [
+        'talker = py_pubsub.publisher_node:main',
+        'listener = py_pubsub.subscriber_node:main',
+        'voice_cmd_pub = py_pubsub.voice_command_publisher:main', # Add this line
+    ],
+},
+```
+
+#### 3. Build and Run
+
+Rebuild your workspace and source it:
+
+```bash
+cd ~/ros2_ws
+colcon build --packages-select py_pubsub
+source install/setup.bash
+```
+
+Then, run your voice command publisher node:
+
+```bash
+ros2 run py_pubsub voice_cmd_pub
+```
+
+Now, speak into your microphone. The script will attempt to transcribe your speech and publish it to the `/voice_command` topic. You can listen to this topic in another terminal:
+
+```bash
+ros2 topic echo /voice_command
+```
+
+### Add a `TranslationButton` Component Placeholder
+
+For integrating multilingual capabilities, we can add a placeholder for a `TranslationButton` component. This component, when implemented, would allow users to toggle content translation (e.g., to Urdu, as specified in the constitution).
+
+// <TranslationButton />
+
+{/* Chapter End */}
+
+:::tip
+**Practice:** Try running this code in your terminal to verify it works.
+:::

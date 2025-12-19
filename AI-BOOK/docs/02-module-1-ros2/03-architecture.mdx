@@ -1,0 +1,61 @@
+---
+sidebar_label: 'ROS 2 Architecture'
+# This chapter is part of Module 1: ROS 2 Nervous System
+---
+
+{/* Chapter Start */}
+
+## The Core Architecture of ROS 2
+
+To understand ROS 2, let's use the analogy of a biological nervous system. It's a complex network where different parts have specific roles but work together seamlessly.
+
+### Nodes (The Neurons)
+
+In ROS 2, a **Node** is the fundamental processing unit, much like a neuron in the brain. Each node is a single-purpose, executable program responsible for one specific task.
+
+-   **Example:** You might have a `CameraDriver` node whose only job is to access the camera hardware and publish image data. Another node, `MotorController`, would be responsible for sending commands to the robot's wheels.
+
+This modularity is a core strength of ROS 2, allowing for complex systems to be built from simple, reusable components.
+
+### Topics (The Nerves) & Messages
+
+If nodes are neurons, **Topics** are the nerves that connect them. Topics are named buses over which nodes exchange data. They work on a **Publish/Subscribe** model.
+
+-   A node can **publish** data to a topic. This is like a neuron firing and sending a signal down a nerve.
+-   Other nodes can **subscribe** to that topic to receive the data. This is like other neurons receiving the signal.
+
+You can think of a topic like a YouTube channel. A node (the "YouTuber") publishes videos (data) to a channel (the topic). Any number of other nodes (the "subscribers") can tune in to that channel to watch the videos.
+
+The data itself is sent in the form of **Messages**. A message is a simple data structure, like a C `struct` or a Python `class`, that defines the type of data being sent. For example, an image topic might use a `sensor_msgs/Image` message type.
+
+Here is a simple diagram of this flow:
+
+`[CameraDriver Node] --publishes--> /image_raw (Topic) --subscribes--> [ImageProcessor Node]`
+
+### Services (Direct Commands)
+
+While topics are great for continuous data streams (like sensor data), sometimes you need a direct request/response interaction. For this, ROS 2 provides **Services**.
+
+A service is a synchronous communication pattern. One node (the "client") sends a request to another node (the "service provider"), which then does some work and sends back a response.
+
+:::tip
+**When to use Topics vs. Services?**
+
+-   Use **Topics** for continuous, asynchronous data streams, where multiple nodes may be interested in the data (e.g., sensor data, robot state).
+-   Use **Services** for specific, transactional interactions where you need a direct confirmation or result (e.g., "calculate the inverse kinematics for this arm position", "save the current map to a file").
+:::
+
+Here is a diagram for a service interaction:
+
+`[Navigator Node] --requests--> /compute_path (Service) --> [PathPlanner Node]`
+`[Navigator Node] <--response-- /compute_path (Service) <-- [PathPlanner Node]`
+
+By combining Nodes, Topics, and Services, you can build complex and robust robotic applications.
+
+<PersonalizedContent />
+
+{/* Chapter End */}
+
+:::tip
+**Practice:** Try running this code in your terminal to verify it works.
+:::

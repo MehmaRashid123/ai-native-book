@@ -5,11 +5,31 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
-import { Button, Text, Card } from '@mantine/core'; // Import Mantine Components
-
-import FloatingChatbotButton from '@site/src/components/FloatingChatbotButton'; // Import FloatingChatbotButton
-import ModuleCard from '@site/src/components/ModuleCard'; // ModuleCard is removed, but for now Mantine Card is here
 import styles from './index.module.css';
+
+const modules = [
+  {
+    title: 'Module 1: The Robotic Nervous System (ROS 2)',
+    description: 'Learn the core concepts of ROS 2: Nodes, Topics, Services, and Actions. Build your robot\'s communication backbone using rclpy and URDF.',
+    link: '/docs/module-1-ros2/introduction',
+  },
+  {
+    title: 'Module 2: The Digital Twin (Simulation)',
+    description: 'Understand robot description formats (URDF/SDF) and simulate physics in Gazebo. Learn to add virtual sensors and test your robot in a safe environment.',
+    link: '/docs/module-2-simulation/digital-twin-concept',
+  },
+  {
+    title: 'Module 3: The AI Brain (NVIDIA Isaac)',
+    description: 'Dive into NVIDIA Omniverse and Isaac Sim for advanced robotics simulation. Explore VSLAM, Nav2, and synthetic data generation for intelligent robots.',
+    link: '/docs/module-3-isaac/intro-isaac-sim',
+  },
+  {
+    title: 'Module 4: Vision-Language-Action (VLA)',
+    description: 'Connect Large Language Models (LLMs) like GPT-4 or Gemini to ROS 2 actions for human-like robot control. Implement voice commands with OpenAI Whisper and work towards your capstone project.',
+    link: '/docs/module-4-vla/vla-theory',
+  },
+];
+
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -22,9 +42,9 @@ function HomepageHeader() {
         <p className={styles.heroSubtitle}>
           {siteConfig.tagline}
         </p>
-        <Button variant="filled" color="neonCyan" size="xl" onClick={() => (window.location.href = '/docs/intro')} mt="xl">
-          Start Learning (Mantine)
-        </Button>
+        <Link className={styles.heroButton} to="/docs/intro">
+          Start Learning
+        </Link>
       </div>
     </header>
   );
@@ -42,31 +62,18 @@ export default function Home(): ReactNode {
           <div className="container">
             <Heading as="h2" className="text--center">Modules</Heading>
             <div className={styles.modulesGrid}>
-              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
-                <Text color="neonCyan" fw={700} fz="lg">ROS 2 Nervous System</Text>
-                <Text c="dimmed" mt="xs">Develop robust robot control architectures.</Text>
-              </Card>
-              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
-                <Text color="neonCyan" fw={700} fz="lg">Digital Twin Simulation</Text>
-                <Text c="dimmed" mt="xs">Create and interact with virtual robot environments.</Text>
-              </Card>
-              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
-                <Text color="neonCyan" fw={700} fz="lg">NVIDIA Isaac AI</Text>
-                <Text c="dimmed" mt="xs">Leverage advanced AI for robotic perception and control.</Text>
-              </Card>
-              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
-                <Text color="neonCyan" fw={700} fz="700" fz="lg">Vision-Language-Action</Text>
-                <Text c="dimmed" mt="xs">Integrate multimodal AI for intelligent robot behavior.</Text>
-              </Card>
-              <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.moduleCard}>
-                <Text color="neonCyan" fw={700} fz="lg">Capstone Project</Text>
-                <Text c="dimmed" mt="xs">Apply all learned skills to a real-world robotics challenge.</Text>
-              </Card>
+              {modules.map((module, idx) => (
+                <Link to={module.link} key={idx} className={styles.moduleCardLink}>
+                  <div className={clsx(styles.moduleCard, 'padding--lg')}>
+                    <h3 style={{color: 'var(--neon-cyan)', fontWeight: 700, fontSize: '1.25rem'}}>{module.title}</h3>
+                    <p style={{color: '#a0a0a0', marginTop: '0.5rem'}}>{module.description}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
       </main>
-      <FloatingChatbotButton />
     </Layout>
   );
 }

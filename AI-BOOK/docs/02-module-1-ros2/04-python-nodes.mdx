@@ -1,0 +1,176 @@
+---
+sidebar_label: 'First ROS 2 Node (Python)'
+# This chapter is part of Module 1: ROS 2 Nervous System
+---
+
+{/* Chapter Start */}
+
+## Writing Your First ROS 2 Node in Python
+
+Theory is great, but robotics is about building. Let's write our first ROS 2 nodes using Python and the `rclpy` library. We will create a simple "talker" (publisher) and "listener" (subscriber).
+
+### 1. Creating a ROS 2 Workspace
+
+A workspace is a directory where you manage your ROS 2 projects. Let's create one.
+
+```bash
+# Create a workspace directory and a source directory
+mkdir -p ros2_ws/src
+cd ros2_ws
+```
+
+The `src` directory is where we will put our Python packages.
+
+### 2. The Publisher Node
+
+Let's create a Python package for our nodes.
+
+```bash
+cd src
+ros2 pkg create --build-type ament_python py_pubsub
+```
+
+Now, inside `py_pubsub/py_pubsub`, create a file named `publisher_node.py` and add the following code:
+
+```python
+# publisher_node.py
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+
+class MinimalPublisher(Node):
+
+    def __init__(self):
+        super().__init__('minimal_publisher')
+        # Create a publisher on the 'topic' topic with a String message type.
+        # The queue size of 10 is a QoS setting that limits the amount of queued messages.
+        self.publisher_ = self.create_publisher(String, 'topic', 10)
+        
+        # Create a timer that calls the timer_callback function every 0.5 seconds.
+        timer_period = 0.5  # seconds
+        self.timer = self.create_timer(timer_period, self.timer_callback)
+        
+        self.i = 0
+
+    def timer_callback(self):
+        # This function is called by the timer.
+        msg = String()
+        msg.data = 'Hello Physical AI: %d' % self.i
+        
+        # Publish the message.
+        self.publisher_.publish(msg)
+        
+        # Log the published message to the console.
+        self.get_logger().info('Publishing: "%s"' % msg.data)
+        self.i += 1
+
+def main(args=None):
+    # Initialize the rclpy library.
+    rclpy.init(args=args)
+
+    # Create the node.
+    minimal_publisher = MinimalPublisher()
+
+    # Spin the node so the callback function is called.
+    # rclpy.spin() keeps the node running until it's manually stopped.
+    rclpy.spin(minimal_publisher)
+
+    # Destroy the node explicitly
+    # (optional - otherwise it will be done automatically
+    # when the garbage collector destroys the node object)
+    minimal_publisher.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+### 3. The Subscriber Node
+
+Now create another file in the same directory called `subscriber_node.py`.
+
+```python
+# subscriber_node.py
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+
+class MinimalSubscriber(Node):
+
+    def __init__(self):
+        super().__init__('minimal_subscriber')
+        # Create a subscription to the 'topic' topic.
+        # The callback function `listener_callback` is called when a message is received.
+        self.subscription = self.create_subscription(
+            String,
+            'topic',
+            self.listener_callback,
+            10)
+        self.subscription  # prevent unused variable warning
+
+    def listener_callback(self, msg):
+        # This function is called every time a message is received.
+        self.get_logger().info('I heard: "%s"' % msg.data)
+
+def main(args=None):
+    rclpy.init(args=args)
+
+    minimal_subscriber = MinimalSubscriber()
+
+    # Spin the node to keep it alive and listening for messages.
+    rclpy.spin(minimal_subscriber)
+
+    minimal_subscriber.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+### 4. Building and Running the Nodes
+
+Before you can run the nodes, you need to tell ROS 2 how to build them. You do this by editing `setup.py` to add entry points for your nodes.
+
+```python
+# setup.py
+# ... (existing content)
+entry_points={
+    'console_scripts': [
+        'talker = py_pubsub.publisher_node:main',
+        'listener = py_pubsub.subscriber_node:main',
+    ],
+},
+```
+
+Now, go to the root of your workspace (`ros2_ws`) and build your package:
+
+```bash
+cd ~/ros2_ws
+colcon build
+```
+
+`colcon` is the build tool for ROS 2. After the build is finished, source the setup file of your workspace:
+
+```bash
+source install/setup.bash
+```
+
+Now you can run your nodes!
+
+In one terminal:
+```bash
+ros2 run py_pubsub talker
+```
+
+In a second terminal:
+```bash
+ros2 run py_pubsub listener
+```
+
+You have successfully created and run your first ROS 2 nodes!
+
+{/* Chapter End */}
+
+:::tip
+**Practice:** Try running this code in your terminal to verify it works.
+:::

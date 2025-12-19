@@ -29,3 +29,16 @@
   font-size: 2rem; /* Larger size for the icon */
   line-height: 1; /* Adjust line height for better vertical centering */
 }
+
+@media (max-width: 768px) {
+  .floatingChatbotButton {
+    width: 60px;
+    height: 60px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .icon {
+    font-size: 1.8rem;
+  }
+}

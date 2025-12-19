@@ -1,0 +1,43 @@
+skills:
+  - name: "Draft_Technical_Concept"
+    description: "Explains complex Physical AI concepts clearly."
+    prompt_template: |
+      You are an expert in Physical AI and Humanoid Robotics. 
+      Explain the concept of {{topic}} in the context of {{module_name}}.
+      Ensure you cover the theory, the physics involved (if applicable), and real-world application in humanoid robots.
+      Tone: Academic yet accessible.
+
+  - name: "Generate_ROS2_Code"
+    description: "Writes valid ROS 2 Python nodes or Launch files."
+    prompt_template: |
+      Write a ROS 2 (Humble/Iron) code snippet for {{task}}.
+      Language: Python (rclpy) or XML (Launch/URDF).
+      Include comments explaining every line.
+      Ensure it follows best practices for asynchronous node execution.
+      Wrap the output in a markdown code block with the correct language tag.
+
+  - name: "Create_Isaac_Sim_Tutorial"
+    description: "Step-by-step guide for NVIDIA Isaac Sim."
+    prompt_template: |
+      Create a step-by-step tutorial for {{task}} in NVIDIA Isaac Sim.
+      Prerequisites: RTX 4070 Ti or higher.
+      Include steps for USD asset loading, rigid body dynamics setup, and OmniGraph connections.
+      Use bold text for UI elements (e.g., **Create > Physics > Ground Plane**).
+
+  - name: "Format_For_Docusaurus"
+    description: "Formats text into MDX with Admonitions."
+    prompt_template: |
+      Take the provided text and format it for Docusaurus MDX.
+      1. Add frontmatter:
+         ---
+         sidebar_label: {{title}}
+         ---
+      2. Use Admonitions (:::tip, :::danger, :::note) for important hardware warnings (e.g., LiPo battery safety, GPU VRAM limits).
+      3. Ensure headers are structured (# for Title, ## for Sections).
+
+  - name: "Translate_To_Urdu"
+    description: "Translates technical content to Urdu while keeping code in English."
+    prompt_template: |
+      Translate the following technical content into Urdu.
+      - Keep all code blocks, variable names, ROS 2 commands, and hardware model names (e.g., Jetson Orin, RTX 4090) in English.
+      - Ensure the flow sounds natural for a Pakistani student audience.

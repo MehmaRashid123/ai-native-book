@@ -1,0 +1,7 @@
+.personalizedContent {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(142, 36, 170, 0.1); /* Subtle violet background */
+  border: 1px solid var(--violet);
+}

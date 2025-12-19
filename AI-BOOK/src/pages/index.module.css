@@ -4,27 +4,61 @@
  */
 
 .heroBanner {
-  padding: 8rem 0; /* Increase padding for more space */
-  text-align: center; /* Align text to left in new layout */
+  padding: 8rem 0;
+  text-align: center;
   position: relative;
   overflow: hidden;
-  background-color: var(--space-black); /* Use the global space-black variable */
-  color: #eee; /* Light text for dark background */
-  /* Keeping global grid background from custom.css */
+  background-color: var(--space-black);
+  color: #eee;
+  animation: particles 25s linear infinite; /* Slower and smoother */
 }
 
 .heroTitle {
   font-size: 4rem;
   font-weight: bold;
   color: var(--neon-cyan);
-  text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+  animation: futuristic-glow 4s ease-in-out infinite; /* Apply the animation */
 }
 
 .heroSubtitle {
   font-size: 1.5rem;
   color: #a0a0a0;
   margin-top: 1rem;
+  text-shadow: 0 0 5px rgba(173, 216, 230, 0.7); /* Light blue glow */
 }
+
+.heroButton {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--space-black);
+  background-color: var(--neon-cyan);
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.heroButton:hover {
+  background-color: #fff;
+  box-shadow: 0 0 15px var(--neon-cyan);
+  text-decoration: none;
+  color: var(--space-black);
+}
+
+/* Keyframes for the particle animation */
+@keyframes particles {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1000px 500px;
+  }
+}
+
 
 /* No longer needed as button is inside HeroSection */
 /* .startLearningSection {
@@ -56,4 +90,34 @@
   border-color: var(--neon-cyan);
   box-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--violet); /* Dual glow */
   transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .heroBanner {
+    padding: 4rem 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .heroTitle {
+    font-size: 2.5rem; /* Reduce font size for mobile */
+  }
+
+  .heroSubtitle {
+    font-size: 1.2rem; /* Reduce font size for mobile */
+  }
+
+  /* Disable hover effect on touch devices */
+  .moduleCard:hover {
+    border-color: rgba(0, 188, 212, 0.2);
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+.moduleCardLink {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+}
+
+.moduleCardLink:hover {
+    text-decoration: none; /* Ensure no underline on hover */
 }

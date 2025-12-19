@@ -1,0 +1,93 @@
+---
+sidebar_label: 'ROS 2 Launch Files'
+# This chapter is part of Module 1: ROS 2 Nervous System
+---
+
+{/* Chapter Start */}
+
+## ROS 2 Launch Files
+
+In the previous lesson, you learned how to run individual ROS 2 nodes. Imagine you have a complex robot with 20, 50, or even 100 nodes! Opening a separate terminal for each node and running them individually would be a monumental, and often impossible, task. This is where ROS 2 Launch Files come to the rescue.
+
+### The Problem
+
+Running multiple ROS 2 nodes manually is inefficient and error-prone. It's difficult to ensure all nodes start in the correct order, with the right parameters, and without missing any. For a real robot, this simply isn't feasible.
+
+### The Solution: ROS 2 Launch Files
+
+ROS 2 Launch Files provide a way to start multiple ROS 2 nodes simultaneously with a single command. They allow you to define the nodes to be run, their names, namespaces, parameters, and even complex logic like conditional execution or event handling.
+
+Unlike ROS 1, which primarily used XML for launch files, ROS 2 embraces Python-based launch files, offering greater flexibility and programmatic control.
+
+### Code Example: `bringup_robot.launch.py`
+
+Let's create a launch file that starts both our `minimal_publisher` and `minimal_subscriber` nodes from the previous lesson.
+
+First, make sure you are in your `ros2_ws/src/py_pubsub` directory. Create a new file named `bringup_robot.launch.py`:
+
+```python
+import os
+from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    # Define the package name
+    package_name = 'py_pubsub'
+    
+    # Get the share directory for your package
+    # This is useful if you want to reference other files within your package (e.g., config files)
+    pkg_share_directory = get_package_share_directory(package_name)
+
+    # Define the publisher node
+    publisher_node = Node(
+        package=package_name,          # The name of the ROS 2 package
+        executable='publisher_node',   # The executable script for the publisher
+        name='my_publisher',           # A unique name for this node instance
+        output='screen',               # Display log messages to the screen
+        emulate_tty=True,              # Ensure output is properly buffered for screen display
+    )
+
+    # Define the subscriber node
+    subscriber_node = Node(
+        package=package_name,          # The name of the ROS 2 package
+        executable='subscriber_node',  # The executable script for the subscriber
+        name='my_subscriber',          # A unique name for this node instance
+        output='screen',               # Display log messages to the screen
+        emulate_tty=True,              # Ensure output is properly buffered for screen display
+    )
+
+    # Return a LaunchDescription object containing all the actions
+    return LaunchDescription([
+        publisher_node,
+        subscriber_node
+    ])
+```
+
+### Running the Launch File
+
+To run this launch file, first navigate back to the root of your workspace (`ros2_ws`):
+
+```bash
+cd ~/ros2_ws
+```
+
+Then, ensure your workspace is sourced:
+
+```bash
+source install/setup.bash
+```
+
+And finally, execute the launch file:
+
+```bash
+ros2 launch py_pubsub bringup_robot.launch.py
+```
+
+You should now see both your publisher and subscriber nodes starting and running in the same terminal output, demonstrating the power and convenience of ROS 2 launch files!
+
+{/* Chapter End */}
+
+:::tip
+**Practice:** Try running this code in your terminal to verify it works.
+:::

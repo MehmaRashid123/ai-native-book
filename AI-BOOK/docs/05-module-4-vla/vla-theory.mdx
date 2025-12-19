@@ -1,0 +1,46 @@
+---
+sidebar_label: 'Vision-Language-Action Models'
+# This chapter is part of Module 4: Vision-Language-Action (VLA)
+---
+
+{/* Chapter Start */}
+
+## Vision-Language-Action (VLA) Models
+
+The ultimate goal of physical AI is to create robots that can understand human intent, perceive the world, and act intelligently within it. This is the realm of **Vision-Language-Action (VLA) models**, where the capabilities of large language models (LLMs) are extended to control physical robots.
+
+### Connecting LLMs to ROS 2 Actions
+
+At its core, VLA involves bridging the gap between high-level human commands (language) and low-level robot capabilities (actions). LLMs, like GPT-4 or Gemini, excel at understanding natural language and generating coherent responses. By connecting these LLMs to a robot's ROS 2 action server, we can enable a robot to interpret complex instructions and execute a sequence of robotic actions.
+
+The process typically involves:
+
+1.  **Natural Language Understanding (NLU):** The LLM processes a human command (e.g., "Clean the kitchen").
+2.  **Action Planning:** Based on its knowledge and the robot's available actions (defined as ROS 2 actions), the LLM generates a high-level plan. This plan might involve breaking down the complex command into a series of simpler, executable steps.
+3.  **Action Execution:** Each step in the plan is translated into a specific ROS 2 action call (e.g., `NavigateAction`, `IdentifyObjectAction`, `PickObjectAction`).
+4.  **Perception Feedback:** The robot's sensors (vision, tactile, etc.) provide feedback to the system, which can be fed back to the LLM for re-planning or confirmation.
+
+#### Concept: Translating "Clean the kitchen"
+
+Let's imagine a human command: "Clean the kitchen." An LLM-powered VLA system might translate this into the following sequence of ROS 2 actions:
+
+1.  **`Navigate(Kitchen)`:** The robot uses its navigation capabilities (e.g., Nav2) to move to the kitchen area.
+2.  **`Identify(Trash)`:** Using computer vision (e.g., an object detection model), the robot scans the kitchen for items classified as "trash."
+3.  **`Pick(Trash)`:** The robot activates its manipulator (arm) to grasp and pick up the identified trash items.
+4.  **`Navigate(TrashBin)`:** The robot then navigates to the trash bin.
+5.  **`Place(Trash)`:** The robot releases the trash into the bin.
+6.  **Loop:** Repeat the `Identify` and `Pick` actions until no more trash is found or a designated area is clean.
+
+This iterative process, guided by the LLM's understanding and the robot's physical capabilities, allows for a flexible and powerful approach to task execution.
+
+### Introducing the 'Capstone Project: The Autonomous Humanoid'
+
+This module culminates in the concept of **The Autonomous Humanoid**. Throughout this course, you've built the "nervous system" (ROS 2), the "physical body" (simulated robot), and the "AI brain" (NVIDIA Isaac). Now, with VLA models, we unlock the potential for truly intelligent and autonomous behavior.
+
+Your capstone project will involve designing and implementing a system where a humanoid robot can perform complex tasks based on natural language commands. This will require integrating all the knowledge you've gained about ROS 2 communication, physics simulation, perception (VSLAM), and now, the power of large language models for high-level reasoning and action planning.
+
+{/* Chapter End */}
+
+:::tip
+**Practice:** Try running this code in your terminal to verify it works.
+:::
