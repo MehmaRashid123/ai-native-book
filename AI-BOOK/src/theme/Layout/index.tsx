@@ -49,7 +49,7 @@ export default function Layout(props) {
       </div>
 
       {!noFooter && <Footer />}
-      {user && <FloatingChatbotButton />}
+      <FloatingChatbotButton />
       <BackToTopButton />
     </LayoutProvider>
   );
