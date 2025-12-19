@@ -33,7 +33,9 @@ export default function ChatbotUI({ isOpen, onClose }: { isOpen: boolean; onClos
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8000/chat', {
+      // Use environment variable if available, otherwise default to Render URL (to be updated)
+      const API_BASE_URL = 'https://ai-native-book-backend.onrender.com'; 
+      const response = await fetch(`${API_BASE_URL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: userMessage }),
