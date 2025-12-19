@@ -21,7 +21,10 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children, authUrl }: { children: ReactNode, authUrl: string }) => {
     const authClient = createAuthClient({
-        baseURL: authUrl
+        baseURL: authUrl,
+        fetchOptions: {
+            authPath: "/api/auth" // Explicitly define the auth path
+        }
     });
 
     const [user, setUser] = useState<User | null>(null);

@@ -25,8 +25,8 @@ app.use("*", cors({
     credentials: true,
 }));
 
-// BetterAuth handler
-app.all("/api/auth/*", (c) => {
+// BetterAuth handler - use a more robust catch-all
+app.on(["POST", "GET"], "/api/auth/*", (c) => {
     return auth.handler(c.req.raw);
 });
 
