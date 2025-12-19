@@ -72,10 +72,34 @@
   box-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan);
 }
 
-/* Initially hide the center and right sections for mobile-first */
-.navbarSectionCenter,
-.navbarSectionRight {
+/* Initially hide the center section for mobile-first */
+.navbarSectionCenter {
   display: none;
+}
+
+/* Ensure right section (Auth buttons) is visible on all screens */
+.navbarSectionRight {
+  display: flex;
+  margin-left: auto;
+  gap: 0.5rem;
+}
+
+/* Mobile-specific adjustments for Auth buttons */
+@media (max-width: 996px) {
+  .navbarTitle {
+    font-size: 1.1rem; /* Smaller title on mobile */
+    margin-left: 0.5rem;
+  }
+
+  .button {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+    margin-left: 0.25rem;
+  }
+
+  .navbarLinkRight {
+    display: none; /* Hide the Urdu text toggle on very small screens to save space */
+  }
 }
 
 /* Desktop-specific styles */

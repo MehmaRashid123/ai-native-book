@@ -43,7 +43,10 @@ export default function Navbar() {
             <Link className={clsx(styles.button, styles.buttonPrimary)} to="/signup">Signup</Link>
           </>
         ) : (
-          <div className={styles.navbarTitle} style={{fontSize: '0.8rem', color: 'var(--neon-cyan)'}}>Hello, {user.name.split(' ')[0]}</div>
+          <>
+            <Link className={clsx(styles.navbarLink, styles.navbarItem)} style={{fontSize: '0.8rem'}} to="/profile">Profile</Link>
+            <div className={styles.navbarTitle} style={{fontSize: '0.8rem', color: 'var(--neon-cyan)'}}>Hello, {user.name.split(' ')[0]}</div>
+          </>
         )}
         <div className={clsx(styles.navbarLink, styles.navbarItem, styles.navbarLinkRight)}>اردو</div>
         <NavbarColorModeToggle className={styles.colorModeToggle} />
