@@ -33,8 +33,8 @@ export default function ChatbotUI({ isOpen, onClose }: { isOpen: boolean; onClos
     setIsLoading(true);
 
     try {
-      // Use environment variable if available, otherwise default to Render URL (to be updated)
-      const API_BASE_URL = 'https://ai-native-book-backend.onrender.com'; 
+      // Live Hugging Face Space URL
+      const API_BASE_URL = 'https://mehma-deploy.hf.space'; 
       const response = await fetch(`${API_BASE_URL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
