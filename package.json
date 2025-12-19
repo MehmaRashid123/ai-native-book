@@ -1,7 +1,10 @@
 {
-  "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@mantine/core": "^8.3.10",
-    "@mantine/hooks": "^8.3.10"
+  "name": "ai-native-book-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run start --prefix AI-BOOK",
+    "build": "cd AI-BOOK && npm install && npm run build",
+    "install-all": "npm install --prefix AI-BOOK"
   }
 }
