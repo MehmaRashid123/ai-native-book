@@ -8,11 +8,15 @@ const app = new Hono();
 // Enable CORS for all routes
 app.use("*", cors({
     origin: (origin) => {
-        // Allow localhost:3000 and any other trusted origins
-        if (origin === "http://localhost:3000" || origin === "http://127.0.0.1:3000" || !origin) {
+        const allowedOrigins = [
+            "http://localhost:3000", 
+            "http://127.0.0.1:3000", 
+            "https://ai-native-book-psi.vercel.app"
+        ];
+        if (allowedOrigins.includes(origin || "") || !origin) {
             return origin;
         }
-        return "http://localhost:3000"; // Fallback
+        return "https://ai-native-book-psi.vercel.app"; // Fallback to production
     },
     allowHeaders: ["Content-Type", "Authorization"],
     allowMethods: ["POST", "GET", "OPTIONS"],
