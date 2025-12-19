@@ -17,8 +17,10 @@ import SkipToContent from '@theme/SkipToContent';
 import AnnouncementBar from '@theme/AnnouncementBar';
 import BackToTopButton from '@theme/BackToTopButton';
 import FloatingChatbotButton from '@site/src/components/FloatingChatbotButton'; // New import
+import { useAuth } from '@site/src/components/Auth/AuthContext';
 import styles from './styles.module.css';
 export default function Layout(props) {
+  const { user } = useAuth();
   const {
     children,
     noFooter,
@@ -47,7 +49,7 @@ export default function Layout(props) {
       </div>
 
       {!noFooter && <Footer />}
-      <FloatingChatbotButton />
+      {user && <FloatingChatbotButton />}
       <BackToTopButton />
     </LayoutProvider>
   );
