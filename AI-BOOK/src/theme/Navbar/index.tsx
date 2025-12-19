@@ -37,13 +37,14 @@ export default function Navbar() {
       </div>
 
       <div className={clsx(styles.navbarSection, styles.navbarSectionRight)}>
-        {!isLoading && !user && (
+        {!user ? (
           <>
             <Link className={clsx(styles.button, styles.buttonSecondary)} to="/login">Login</Link>
             <Link className={clsx(styles.button, styles.buttonPrimary)} to="/signup">Signup</Link>
           </>
+        ) : (
+          <div className={styles.navbarTitle} style={{fontSize: '0.8rem', color: 'var(--neon-cyan)'}}>Hello, {user.name.split(' ')[0]}</div>
         )}
-        {user && <div className={styles.navbarTitle} style={{fontSize: '0.8rem', color: 'var(--neon-cyan)'}}>Hello, {user.name.split(' ')[0]}</div>}
         <div className={clsx(styles.navbarLink, styles.navbarItem, styles.navbarLinkRight)}>اردو</div>
         <NavbarColorModeToggle className={styles.colorModeToggle} />
         <SearchBar />
