@@ -1,13 +1,11 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import Signup from '../components/Auth/Signup';
 
-export default function Signup() {
+export default function SignupPage() {
   return (
     <Layout title='Signup'>
-      <div className='container padding-vert--lg'>
-        <h1>Signup</h1>
-        <p>Coming Soon...</p>
-      </div>
+      <Signup />
     </Layout>
   );
 }

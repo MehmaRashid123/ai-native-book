@@ -1,0 +1,22 @@
+.personalizedBlock {
+    position: relative;
+    border-left: 3px solid var(--neon-cyan);
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    background: rgba(0, 188, 212, 0.03);
+    border-radius: 0 8px 8px 0;
+}
+
+.badge {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    background: var(--neon-cyan);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
