@@ -27,7 +27,7 @@ export default function Navbar() {
       </div>
 
       <div className={clsx(styles.navbarSection, styles.navbarSectionCenter)}>
-        <Link className={clsx(styles.navbarLink, styles.navbarItem)} to="/docs/intro">Textbook</Link>
+        <Link className={clsx(styles.navbarLink, styles.navbarItem)} to="/docs/module-1-ros2/introduction">Textbook</Link>
         <Link className={clsx(styles.navbarLink, styles.navbarItem)} to="/labs">Labs</Link>
         <Link className={clsx(styles.navbarLink, styles.navbarItem)} to="/capstone">Capstone</Link>
         <Link className={clsx(styles.navbarLink, styles.navbarItem)} to="/reference">Reference</Link>

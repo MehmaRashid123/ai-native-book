@@ -42,7 +42,7 @@ function HomepageHeader() {
         <p className={styles.heroSubtitle}>
           {siteConfig.tagline}
         </p>
-        <Link className={styles.heroButton} to="/docs/intro">
+        <Link className={styles.heroButton} to="/docs/module-1-ros2/introduction">
           Start Learning
         </Link>
       </div>

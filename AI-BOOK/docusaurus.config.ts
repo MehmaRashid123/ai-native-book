@@ -104,8 +104,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Textbook',
+              to: '/docs/module-1-ros2/introduction',
             },
           ],
         },
