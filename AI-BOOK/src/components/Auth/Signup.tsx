@@ -32,7 +32,7 @@ export default function Signup() {
         if (error) {
             setError(error.message || 'Signup failed');
         } else {
-            window.location.href = '/docs/intro';
+            window.location.href = '/docs/module-1-ros2/introduction';
         }
         setIsLoading(false);
     };

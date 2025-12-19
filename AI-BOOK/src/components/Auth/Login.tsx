@@ -24,7 +24,7 @@ export default function Login() {
         if (error) {
             setError(error.message || 'Login failed');
         } else {
-            window.location.href = '/docs/intro';
+            window.location.href = '/docs/module-1-ros2/introduction';
         }
         setIsLoading(false);
     };

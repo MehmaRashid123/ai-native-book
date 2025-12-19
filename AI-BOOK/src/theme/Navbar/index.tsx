@@ -13,10 +13,12 @@ import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
 import SearchBar from '@theme/SearchBar';
 import {useNavbarMobileSidebar} from '@docusaurus/theme-common/internal';
 import clsx from 'clsx';
+import { useAuth } from '../../components/Auth/AuthContext';
 import styles from './styles.module.css'; // Import local styles
 
 export default function Navbar() {
   const mobileSidebar = useNavbarMobileSidebar();
+  const { user, isLoading } = useAuth();
 
   return (
     <NavbarLayout>
@@ -31,11 +33,17 @@ export default function Navbar() {
         <Link className={clsx(styles.navbarLink, styles.navbarItem)} to="/labs">Labs</Link>
         <Link className={clsx(styles.navbarLink, styles.navbarItem)} to="/capstone">Capstone</Link>
         <Link className={clsx(styles.navbarLink, styles.navbarItem)} to="/reference">Reference</Link>
+        {user && <Link className={clsx(styles.navbarLink, styles.navbarItem)} to="/profile">Profile</Link>}
       </div>
 
       <div className={clsx(styles.navbarSection, styles.navbarSectionRight)}>
-        <Link className={clsx(styles.button, styles.buttonSecondary)} to="/login">Login</Link>
-        <Link className={clsx(styles.button, styles.buttonPrimary)} to="/signup">Signup</Link>
+        {!isLoading && !user && (
+          <>
+            <Link className={clsx(styles.button, styles.buttonSecondary)} to="/login">Login</Link>
+            <Link className={clsx(styles.button, styles.buttonPrimary)} to="/signup">Signup</Link>
+          </>
+        )}
+        {user && <div className={styles.navbarTitle} style={{fontSize: '0.8rem', color: 'var(--neon-cyan)'}}>Hello, {user.name.split(' ')[0]}</div>}
         <div className={clsx(styles.navbarLink, styles.navbarItem, styles.navbarLinkRight)}>اردو</div>
         <NavbarColorModeToggle className={styles.colorModeToggle} />
         <SearchBar />

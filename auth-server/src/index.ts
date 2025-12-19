@@ -1,27 +1,42 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { serve } from "@hono/node-server";
 import { auth } from "./auth";
 
 const app = new Hono();
 
+// Enable CORS for all routes
 app.use("*", cors({
-    origin: process.env.frontend_url || "http://localhost:3000",
+    origin: (origin) => {
+        // Allow localhost:3000 and any other trusted origins
+        if (origin === "http://localhost:3000" || origin === "http://127.0.0.1:3000" || !origin) {
+            return origin;
+        }
+        return "http://localhost:3000"; // Fallback
+    },
     allowHeaders: ["Content-Type", "Authorization"],
     allowMethods: ["POST", "GET", "OPTIONS"],
-    exposeHeaders: ["Content-Length"],
+    exposeHeaders: ["Content-Length", "Set-Cookie"],
     maxAge: 600,
     credentials: true,
 }));
 
-app.on(["POST", "GET"], "/api/auth/*", (c) => {
+// BetterAuth handler
+app.all("/api/auth/*", (c) => {
     return auth.handler(c.req.raw);
+});
+
+// Error handler to catch and log 500 errors
+app.onError((err, c) => {
+  console.error("SERVER ERROR:", err);
+  return c.text("Internal Server Error", 500);
 });
 
 const port = Number(process.env.PORT) || 3001;
 
-console.log(`Auth server is running on port ${port}`);
+console.log(`Auth server is starting on port ${port}...`);
 
-export default {
-    port,
-    fetch: app.fetch,
-};
+serve({
+  fetch: app.fetch,
+  port
+});

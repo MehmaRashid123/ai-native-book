@@ -1,13 +1,15 @@
 import { betterAuth } from "better-auth";
-import { betterSqlite3Adapter } from "better-auth/adapters/better-sqlite3";
-import Database from "better-sqlite3";
+import { Pool } from "pg";
 
-const db = new Database(process.env.DATABASE_URL || "sqlite.db");
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+});
 
 export const auth = betterAuth({
-    database: betterSqlite3Adapter(db, {
-        provider: "sqlite",
-    }),
+    database: pool,
+    // Add this to fix the 403 Forbidden / CSRF issue
+    trustedOrigins: ["http://localhost:3000", "http://127.0.0.1:3000"],
+    baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3001",
     emailAndPassword: {
         enabled: true,
     },
