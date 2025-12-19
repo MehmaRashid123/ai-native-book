@@ -7,9 +7,23 @@ const pool = new Pool({
 
 export const auth = betterAuth({
     database: pool,
-    // Add this to fix the 403 Forbidden / CSRF issue
-    trustedOrigins: ["http://localhost:3000", "http://127.0.0.1:3000"],
+    // CRITICAL for Vercel + Hugging Face integration:
+    trustedOrigins: ["http://localhost:3000", "https://ai-native-book-psi.vercel.app"],
     baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3001",
+    
+    // Cookie configuration for cross-domain sessions
+    advanced: {
+        cookiePrefix: "ai-book",
+        useCookieCache: true,
+    },
+    
+    session: {
+        cookie: {
+            sameSite: "none",
+            secure: true,
+        }
+    },
+
     emailAndPassword: {
         enabled: true,
     },

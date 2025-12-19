@@ -23,7 +23,9 @@ export const AuthProvider = ({ children, authUrl }: { children: ReactNode, authU
     const authClient = createAuthClient({
         baseURL: authUrl,
         fetchOptions: {
-            authPath: "/api/auth" // Explicitly define the auth path
+            authPath: "/api/auth",
+            // This is required to send cookies to the Hugging Face domain
+            credentials: "include" 
         }
     });
 
